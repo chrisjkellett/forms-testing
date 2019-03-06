@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import Form from './containers/Form/Form';
+import {examinerFormModel} from './constructors/forms/forms';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-       Hello world
-      </div>
+      <Form model={examinerFormModel} id="examiners" />
     );
   }
 }
