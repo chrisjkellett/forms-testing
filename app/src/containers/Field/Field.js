@@ -1,5 +1,5 @@
 import React from 'react';
-import {shape, string, func} from 'prop-types';
+import {shape, string, func, object} from 'prop-types';
 import Checkbox from '../Checkbox/Checkbox';
 
 const Field = props => {
@@ -18,7 +18,8 @@ const Field = props => {
 Field.propTypes = {
   data: shape({
     type: string.isRequired,
-    value: string.isRequired,
+    value: string,
+    options: object,
     change: func.isRequired
   })
 }
