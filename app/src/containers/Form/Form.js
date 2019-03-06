@@ -13,7 +13,7 @@ class Form extends Component {
     Object.keys(model).forEach(item => {
       switch(model[item].type){
         case 'checkbox':
-          model[item].change = this.handlers.changeCheckbox;
+          model[item].change = this.handlers.$changeCheckbox;
           break;
         default:
           model[item].change = this.handlers.change;
@@ -43,24 +43,29 @@ class Form extends Component {
 
     },
 
-    changeCheckbox: event => {
+    $changeCheckbox: event => {
       const {id, attributes, checked} = event.target;
       const group = attributes.group.value;
       const slice = this.state[this.props.id];
-      this.setState({
-        [this.props.id]: {
-          ...slice,
-          [group]: {
-            ...slice[group],
-            options: {
-              ...slice[group].options,
-              [id]: {
-                checked: checked
-              }
+      const updated = this.$getCheckboxState(id, checked, group, slice)
+      this.setState(updated);
+    }
+  }
+
+  $getCheckboxState(id, checked, group, slice){
+    return {
+      [this.props.id]: {
+        ...slice,
+        [group]: {
+          ...slice[group],
+          options: {
+            ...slice[group].options,
+            [id]: {
+              checked: checked
             }
           }
         }
-      });
+      }
     }
   }
 

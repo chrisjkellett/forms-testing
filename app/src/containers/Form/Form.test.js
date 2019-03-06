@@ -43,7 +43,7 @@ describe('<Form />', () => {
       }
     }
     
-    instance.handlers.changeCheckbox(event);
+    instance.handlers.$changeCheckbox(event);
     expect(cmp.state()[id][group].options[testLevel].checked).toBe(true);
   })
   
