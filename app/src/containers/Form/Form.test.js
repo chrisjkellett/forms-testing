@@ -5,10 +5,12 @@ import Field from '../Field/Field';
 import {examinerFormModel} from '../../constructors/forms/forms';
 
 describe('<Form />', () => {
-  let cmp, myModel;
+  let cmp, myModel, instance;
   const {model, id} = examinerFormModel;
+  
   beforeAll(() => {
     cmp = shallow(<Form model={model} id={id} />);
+    instance = cmp.instance();
     myModel = cmp.state(id);
   })
 
@@ -24,6 +26,25 @@ describe('<Form />', () => {
   test('maps a Field cmp for each key in state', () => {
     const numberOfKeys = Object.keys(cmp.state()[id]).length;
     expect(cmp.find(Field)).toHaveLength(numberOfKeys);
+  })
+
+  test('controls a Checkbox', () => {
+    const group = 'levels';
+    const testLevel = 'KET';
+    const event = {
+      target: {
+        id: testLevel,
+        attributes: {
+          group: {
+            value: group
+          }
+        },
+        checked: true
+      }
+    }
+    
+    instance.handlers.changeCheckbox(event);
+    expect(cmp.state()[id][group].options[testLevel].checked).toBe(true);
   })
   
 })
