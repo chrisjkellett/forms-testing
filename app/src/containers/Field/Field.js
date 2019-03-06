@@ -17,6 +17,7 @@ const Field = props => {
 
 Field.propTypes = {
   data: shape({
+    id: string.isRequired,
     type: string.isRequired,
     value: string,
     options: object,

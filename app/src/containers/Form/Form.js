@@ -31,8 +31,10 @@ class Form extends Component {
 
   $mapFields(){
     const fields = this.state[this.props.id];
+    let data;
     return Object.keys(fields).map(item => {
-      return <Field key={item} data={fields[item]} />
+      data = {...fields[item], id: item}
+      return <Field key={item} data={data} />
     });
   }
 
@@ -41,8 +43,24 @@ class Form extends Component {
 
     },
 
-    changeCheckbox: () => {
-
+    changeCheckbox: event => {
+      const {id, attributes, checked} = event.target;
+      const group = attributes.group.value;
+      const slice = this.state[this.props.id];
+      this.setState({
+        [this.props.id]: {
+          ...slice,
+          [group]: {
+            ...slice[group],
+            options: {
+              ...slice[group].options,
+              [id]: {
+                checked: checked
+              }
+            }
+          }
+        }
+      });
     }
   }
 
