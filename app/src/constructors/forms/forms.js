@@ -2,7 +2,7 @@ import {Input} from '../fields/fields';
 
 export const examinerFormModel = {
   id: 'examiners',
-  fields: {
+  model: {
     ...new Input('name'),
     ...new Input('age')
   }

@@ -5,8 +5,8 @@ describe('examinerFormModel constructs an object', () => {
     expect(examinerFormModel.id).toBeDefined();
   })
 
-  test('with a fields prop type object ', () => {
-    expect(examinerFormModel.fields).toBeDefined();
+  test('with a model prop type object ', () => {
+    expect(examinerFormModel.model).toBeDefined();
   })
   
 })

@@ -5,7 +5,7 @@ import {examinerFormModel} from './constructors/forms/forms';
 class App extends Component {
   render() {
     return (
-      <Form model={examinerFormModel} id="examiners" />
+      <Form model={examinerFormModel.model} id={examinerFormModel.id} />
     );
   }
 }

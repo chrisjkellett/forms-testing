@@ -1,18 +1,18 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import Form from './Form';
+import {examinerFormModel} from '../../constructors/forms/forms';
 
 describe('<Form />', () => {
   let cmp, instance;
+  const {model, id} = examinerFormModel;
   beforeAll(() => {
-    cmp = shallow(<Form data={data} id="test" />);
+    cmp = shallow(<Form model={model} id={id} />);
     instance = cmp.instance(); 
   })
- 
- 
 
-  test('should set its own state via props', () => {
-    expect(cmp.state()).toEqual(data);
+  test('should set own state via props where key is id and model is value', () => {
+    expect(cmp.state(id)).toEqual(model);
   })
   
 })
