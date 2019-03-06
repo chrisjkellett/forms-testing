@@ -5,6 +5,7 @@ export const examinerFormModel = {
   model: {
     ...new Input('name'),
     ...new Input('age'),
-    ...new Checkbox('levels')
+    ...new Checkbox('levels'),
+    ...new Checkbox('availability')
   }
 }

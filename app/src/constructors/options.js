@@ -6,6 +6,11 @@ export const Options = {
     "CAE",
     "CPE"
   ],
+  availability: [
+    "mon-morning",
+    "mon-afternoon",
+    "mon-evening",
+  ],
   test: [
     "value-1",
     "value-2",
