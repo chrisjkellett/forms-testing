@@ -46,6 +46,18 @@ describe('<Form />', () => {
     instance.handlers.$changeCheckbox(event);
     expect(cmp.state()[id][group].options[testLevel].checked).toBe(true);
   })
+
+  test('controls an Input', () => {
+    const event = {
+      target: {
+        id: 'name',
+        value: 'hello'
+      }
+    }
+    instance.handlers.$change(event);
+    expect(cmp.state()[id][event.target.id].value).toBe('hello');
+  })
+  
   
 })
 

@@ -6,7 +6,7 @@ const Input = props => {
   return (
     <div>
       <label>{id}</label>
-      <input type={type} id={id} value={value} change={change} />
+      <input type={type} id={id} value={value} onChange={change} />
     </div>
   )
 }

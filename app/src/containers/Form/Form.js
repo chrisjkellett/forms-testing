@@ -16,7 +16,7 @@ class Form extends Component {
           model[item].change = this.handlers.$changeCheckbox;
           break;
         default:
-          model[item].change = this.handlers.change;
+          model[item].change = this.handlers.$change;
       }
     })
   }
@@ -39,8 +39,18 @@ class Form extends Component {
   }
 
   handlers = {
-    change: () => {
-
+    $change: event => {
+      const {id, value} = event.target;
+      const slice = this.state[this.props.id];
+      this.setState({
+        [this.props.id]: {
+          ...slice,
+          [id]: {
+            ...slice[id],
+            value: value
+          }
+        }
+      })
     },
 
     $changeCheckbox: event => {
