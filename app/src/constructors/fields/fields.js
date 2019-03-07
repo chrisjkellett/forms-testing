@@ -21,11 +21,13 @@ export function Checkbox(name){
 }
 
 export function Select(name){
+  const options = setSelect(Options[name]);
   return {
     [name]: {
       type: 'select',
       change: null,
-      options: setSelect(Options[name])
+      value: options[0].id,
+      options: options
     }
   }
 }

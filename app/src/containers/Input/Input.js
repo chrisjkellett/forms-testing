@@ -16,7 +16,7 @@ Input.propTypes = {
     change: func.isRequired,
     id: string.isRequired,
     type: string.isRequired,
-    value: string.isRequired
+    value: string.isRequired,
   })
 }
 

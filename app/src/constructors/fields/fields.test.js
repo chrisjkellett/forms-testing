@@ -29,7 +29,8 @@ describe('data utilities', () => {
           {id: 'value-1', label: 'value-1'}, 
           {id: 'value-2', label: 'value-2'},
           {id: 'value-3', label: 'value-3'},
-        ]
+        ],
+        value: 'value-1'
       }
     }
     expect(ins).toEqual(model);

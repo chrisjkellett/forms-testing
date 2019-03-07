@@ -39,7 +39,8 @@ describe('<Field />', () => {
       options: [
         {id: 'value-1', label: 'value 1'}
       ],
-      type: 'select'
+      type: 'select',
+      value: 'value 1'
     }
     const cmp = shallow(<Field data={data} />);
     expect(cmp.find(Select)).toHaveLength(1);
