@@ -3,10 +3,11 @@ import {shallow} from 'enzyme';
 import Field from './Field';
 import Checkbox from '../Checkbox/Checkbox';
 import Input from '../Input/Input';
+import Select from '../Select/Select';
 
 describe('<Field />', () => {
   
-  test('renders Checkbox whem type is <checkbox>', () => {
+  test('renders Checkbox when type is checkbox', () => {
     const data = {
       change: jest.fn(),
       id: 'test',
@@ -20,7 +21,7 @@ describe('<Field />', () => {
     expect(cmp.find(Checkbox)).toHaveLength(1);
   })
 
-  test('renders Input whem type is <text>', () => {
+  test('renders Input when type is text', () => {
     const data = {
       change: jest.fn(),
       id: 'test',
@@ -30,5 +31,19 @@ describe('<Field />', () => {
     const cmp = shallow(<Field data={data} />);
     expect(cmp.find(Input)).toHaveLength(1);
   })
+
+  test('renders Select when type is select', () => {
+    const data = {
+      change: jest.fn(),
+      id: 'test',
+      options: [
+        {id: 'value-1', label: 'value 1'}
+      ],
+      type: 'select'
+    }
+    const cmp = shallow(<Field data={data} />);
+    expect(cmp.find(Select)).toHaveLength(1);
+  })
+  
 })
 
