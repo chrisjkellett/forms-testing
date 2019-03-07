@@ -21,6 +21,15 @@ describe('<Form />', () => {
         option1: {checked: false},
         option2: {checked: false}
       }
+    },
+    'test-select': {
+      type: 'select',
+      change: null,
+      options: [
+        {id: 'option1', label: 'Option 1'},
+        {id: 'option2', label: 'Option 2'}
+      ],
+      value: ''
     }
   }
   
@@ -71,6 +80,17 @@ describe('<Form />', () => {
     }
     instance.handlers.$change(event);
     expect(cmp.state()[id][event.target.id].value).toBe('hello');
+  })
+
+  test('controls a Select', () => {
+    const event = {
+      target: {
+        id: 'test-select',
+        value: 'Option 2'
+      }
+    }
+    instance.handlers.$change(event);
+    expect(cmp.state()[id][event.target.id].value).toBe('Option 2');
   })
   
   

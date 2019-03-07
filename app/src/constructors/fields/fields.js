@@ -26,7 +26,7 @@ export function Select(name){
     [name]: {
       type: 'select',
       change: null,
-      value: options[0].id,
+      value: options[0].label,
       options: options
     }
   }
