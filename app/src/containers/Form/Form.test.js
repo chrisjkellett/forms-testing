@@ -2,25 +2,40 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import Form from './Form';
 import Field from '../Field/Field';
-import {examinerFormModel} from '../../constructors/forms/forms';
 
 describe('<Form />', () => {
-  let cmp, myModel, instance;
-  const {model, id} = examinerFormModel;
+  let cmp, instance;
+  const testInput = 'test-input';
+  const testCheckbox = 'test-checkbox';
+  const id = 'test';
+  const newModel = {
+    [testInput]: {
+      type: 'text',
+      value: '',
+      change: null
+    },
+    [testCheckbox]: {
+      type: 'checkbox',
+      change: null,
+      options: {
+        option1: {checked: false},
+        option2: {checked: false}
+      }
+    }
+  }
   
   beforeAll(() => {
-    cmp = shallow(<Form model={model} id={id} />);
+    cmp = shallow(<Form model={newModel} id={id} />);
     instance = cmp.instance();
-    myModel = cmp.state(id);
   })
 
   test('should set own state via props where key is id and model is value', () => {
-    expect(cmp.state(id)).toEqual(model);
+    expect(cmp.state(id)).toEqual(newModel);
   })
 
   test('maps handlers to model on mounting', () => {
-    const input = Object.keys(myModel).find(item => myModel[item].type === 'text');
-    expect(myModel[input].change).not.toBeNull();
+    const input = Object.keys(newModel).find(item => newModel[item].type === 'text');
+    expect(newModel[input].change).not.toBeNull();
   })
 
   test('maps a Field cmp for each key in state', () => {
@@ -29,11 +44,11 @@ describe('<Form />', () => {
   })
 
   test('controls a Checkbox', () => {
-    const group = 'levels';
-    const testLevel = 'KET';
+    const group = testCheckbox;
+    const testOption = 'option1';
     const event = {
       target: {
-        id: testLevel,
+        id: testOption,
         attributes: {
           group: {
             value: group
@@ -42,15 +57,15 @@ describe('<Form />', () => {
         checked: true
       }
     }
-    
+
     instance.handlers.$changeCheckbox(event);
-    expect(cmp.state()[id][group].options[testLevel].checked).toBe(true);
+    expect(cmp.state()[id][group].options[testOption].checked).toBe(true);
   })
 
   test('controls an Input', () => {
     const event = {
       target: {
-        id: 'name',
+        id: testInput,
         value: 'hello'
       }
     }
