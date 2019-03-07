@@ -11,6 +11,11 @@ export const Options = {
     "mon-afternoon",
     "mon-evening",
   ],
+  roles: [
+    "SE",
+    "TL",
+    "INV"
+  ],
   test: [
     "value-1",
     "value-2",

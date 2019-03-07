@@ -1,4 +1,4 @@
-import {Input, Checkbox} from '../fields/fields';
+import {Input, Checkbox, Select} from '../fields/fields';
 
 export const examinerFormModel = {
   id: 'examiners',
@@ -6,6 +6,7 @@ export const examinerFormModel = {
     ...new Input('name'),
     ...new Input('age'),
     ...new Checkbox('levels'),
-    ...new Checkbox('availability')
+    ...new Checkbox('availability'),
+    ...new Select('roles')
   }
 }

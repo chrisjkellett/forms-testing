@@ -25,9 +25,25 @@ export function Select(name){
     [name]: {
       type: 'select',
       change: null,
-      options: Options[name]
+      options: setSelect(Options[name])
     }
   }
+}
+
+export function setSelect(array){
+  if(array){
+    return array.map(item => {
+      return {id: formatId(item), label: item}
+    })
+  }
+
+  else {
+    return null;
+  }
+}
+
+export function formatId(str){
+  return str.replace(/\s/g, "-").toLowerCase();
 }
 
 export function setOptions(array){

@@ -1,4 +1,4 @@
-import {Input, Checkbox, setOptions, Select} from './fields';
+import {Input, Checkbox, setOptions, Select, formatId, setSelect} from './fields';
 
 describe('data utilities', () => {
   test('can create an Input model', () => {
@@ -25,10 +25,30 @@ describe('data utilities', () => {
       'test': {
         type: 'select',
         change: null,
-        options: ['value-1', 'value-2', 'value-3']
+        options: [
+          {id: 'value-1', label: 'value-1'}, 
+          {id: 'value-2', label: 'value-2'},
+          {id: 'value-3', label: 'value-3'},
+        ]
       }
     }
     expect(ins).toEqual(model);
+  })
+
+  test('setSelect maps array item to obj with id and label', () => {
+    const array = ["value 1"];
+    const result = setSelect(array);
+    expect(result).toEqual([{
+      id: "value-1",
+      label: "value 1"
+    }])
+  })
+  
+  
+  test('formatId() removes whitespace and capitalization from strings', () => {
+    const string = "Hello world";
+    const result = formatId(string);
+    expect(result).toBe("hello-world");
   })
   
   
