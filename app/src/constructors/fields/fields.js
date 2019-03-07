@@ -20,6 +20,16 @@ export function Checkbox(name){
   }
 }
 
+export function Select(name){
+  return {
+    [name]: {
+      type: 'select',
+      change: null,
+      options: Options[name]
+    }
+  }
+}
+
 export function setOptions(array){
   if(array){
     let obj = {};
