@@ -2,8 +2,12 @@ import React from 'react';
 import {shape, string, func} from 'prop-types';
 
 const Input = props => {
-  return(
-    <p>Input placeholder</p>
+  const {id, type, change, value} = props.data;
+  return (
+    <div>
+      <label>{id}</label>
+      <input type={type} id={id} value={value} change={change} />
+    </div>
   )
 }
 
