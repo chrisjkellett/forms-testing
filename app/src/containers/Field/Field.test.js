@@ -52,7 +52,7 @@ describe('<Field />', () => {
       change: jest.fn(),
       id: 'test',
       type: 'date',
-      value: []
+      value: ''
     }
     const cmp = shallow(<Field data={data} />);
     expect(cmp.find(DateInput)).toHaveLength(1);

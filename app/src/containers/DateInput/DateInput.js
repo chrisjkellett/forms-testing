@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {string, func, shape} from 'prop-types';
 import Select from '../Select/Select';
-import {setSelect} from '../../constructors/utilities/utilities'
+import {setSelect} from '../../utilities/utilities';
 
 const VALUES = {
   day: [
