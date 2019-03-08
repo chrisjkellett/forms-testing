@@ -4,6 +4,7 @@ import Field from './Field';
 import Checkbox from '../Checkbox/Checkbox';
 import Input from '../Input/Input';
 import Select from '../Select/Select';
+import DateInput from '../DateInput/DateInput';
 
 describe('<Field />', () => {
   
@@ -44,6 +45,17 @@ describe('<Field />', () => {
     }
     const cmp = shallow(<Field data={data} />);
     expect(cmp.find(Select)).toHaveLength(1);
+  })
+
+  test('renders DateInput when type is date', () => {
+    const data = {
+      change: jest.fn(),
+      id: 'test',
+      type: 'date',
+      value: []
+    }
+    const cmp = shallow(<Field data={data} />);
+    expect(cmp.find(DateInput)).toHaveLength(1);
   })
   
 })
