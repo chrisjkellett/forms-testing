@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {string, shape, func,arrayOf, object} from 'prop-types';
+import {string, shape, func,arrayOf, object, any} from 'prop-types';
 
 class Select extends Component {
   $renderOptions(){
