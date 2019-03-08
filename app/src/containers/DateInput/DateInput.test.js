@@ -3,7 +3,7 @@ import {shallow} from 'enzyme';
 import DateInput from './DateInput';
 import Select from '../Select/Select';
 import moment from 'moment';
-import data from '../../constructors/app-data';
+import data from '../../app-data';
 
 describe('<DateInput />', () => {
   const cmp_data = {

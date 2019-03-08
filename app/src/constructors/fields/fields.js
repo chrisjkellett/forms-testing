@@ -1,4 +1,4 @@
-import data from '../app-data';
+import data from '../../app-data';
 import {setOptions, setSelect, formatId as format} from '../../utilities/utilities';
 import moment from 'moment';
 

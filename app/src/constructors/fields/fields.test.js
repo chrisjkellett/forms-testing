@@ -1,7 +1,7 @@
 import moment from 'moment';
 import {Input, Checkbox, Select, DateInput} from './fields';
 import {setOptions} from '../../utilities/utilities';
-import data from '../app-data';
+import data from '../../app-data';
 
 describe('models for creating form fields', () => {
   test('can create an Input model', () => {
