@@ -1,4 +1,4 @@
-export const Options = {
+const data = {
   levels: [
     "KET",
     "PET",
@@ -22,3 +22,5 @@ export const Options = {
     "value-3"
   ]
 }
+
+export default data;

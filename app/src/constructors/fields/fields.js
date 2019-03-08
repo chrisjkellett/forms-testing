@@ -1,4 +1,4 @@
-import {Options} from '../options';
+import data from '../app-data';
 import {setOptions, setSelect, formatId as format} from '../utilities/utilities';
 
 export function Input(name){
@@ -26,13 +26,13 @@ export function Checkbox(name){
     [format(name)]: {
       type: 'checkbox',
       change: null,
-      options: setOptions(Options[name])
+      options: setOptions(data[name])
     }
   }
 }
 
 export function Select(name){
-  const options = setSelect(Options[name]);
+  const options = setSelect(data[name]);
   return {
     [format(name)]: {
       type: 'select',
