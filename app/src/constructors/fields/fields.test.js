@@ -1,7 +1,7 @@
 import moment from 'moment';
 import {Input, Checkbox, Select, DateInput} from './fields';
 import {setOptions} from '../../utilities/utilities';
-import data from '../../app-data';
+import appData from '../../app-data';
 
 describe('models for creating form fields', () => {
   test('can create an Input model', () => {
@@ -45,7 +45,7 @@ describe('models for creating form fields', () => {
       'test': {
         type: 'date',
         change: null,
-        value: moment().format(data.DATE_FORMAT)
+        value: moment().format(appData.DATE_FORMAT)
       }
     }
     expect(ins).toEqual(model);

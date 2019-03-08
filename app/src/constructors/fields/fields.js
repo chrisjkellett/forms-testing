@@ -1,4 +1,4 @@
-import data from '../../app-data';
+import appData from '../../app-data';
 import {setOptions, setSelect, formatId as format} from '../../utilities/utilities';
 import moment from 'moment';
 
@@ -17,7 +17,7 @@ export function DateInput(name){
     [format(name)]: {
       type: 'date',
       change: null,
-      value: moment().format(data.DATE_FORMAT)
+      value: moment().format(appData.DATE_FORMAT)
     }
   }
 }
@@ -27,13 +27,13 @@ export function Checkbox(name){
     [format(name)]: {
       type: 'checkbox',
       change: null,
-      options: setOptions(data[name])
+      options: setOptions(appData[name])
     }
   }
 }
 
 export function Select(name){
-  const options = setSelect(data[name]);
+  const options = setSelect(appData[name]);
   return {
     [format(name)]: {
       type: 'select',

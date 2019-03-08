@@ -1,4 +1,4 @@
-const data = {
+const appData = {
   DATE_FORMAT: 'DD-MM-YYYY',
   LEVELS: [
     "KET",
@@ -24,4 +24,4 @@ const data = {
   ]
 }
 
-export default data;
+export default appData;
