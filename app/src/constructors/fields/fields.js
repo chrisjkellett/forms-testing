@@ -1,9 +1,9 @@
 import {Options} from '../options';
-import {setOptions, setSelect} from '../utilities/utilities';
+import {setOptions, setSelect, formatId as format} from '../utilities/utilities';
 
 export function Input(name){
   return {
-    [name]: {
+    [format(name)]: {
       type: 'text',
       value: '',
       change: null
@@ -13,7 +13,7 @@ export function Input(name){
 
 export function DateInput(name){
   return {
-    [name]: {
+    [format(name)]: {
       type: 'date',
       change: null,
       value: []
@@ -23,7 +23,7 @@ export function DateInput(name){
 
 export function Checkbox(name){
   return {
-    [name]: {
+    [format(name)]: {
       type: 'checkbox',
       change: null,
       options: setOptions(Options[name])
@@ -34,7 +34,7 @@ export function Checkbox(name){
 export function Select(name){
   const options = setSelect(Options[name]);
   return {
-    [name]: {
+    [format(name)]: {
       type: 'select',
       change: null,
       value: options[0].label,
