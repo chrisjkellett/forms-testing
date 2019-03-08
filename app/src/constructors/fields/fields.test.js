@@ -1,4 +1,4 @@
-import {Input, Checkbox, Select} from './fields';
+import {Input, Checkbox, Select, DateInput} from './fields';
 import {setOptions} from '../utilities/utilities';
 
 describe('models for creating form fields', () => {
@@ -32,6 +32,18 @@ describe('models for creating form fields', () => {
           {id: 'value-3', label: 'value-3'},
         ],
         value: 'value-1'
+      }
+    }
+    expect(ins).toEqual(model);
+  })
+  
+  test('can create a DateInput model', () => {
+    const ins = new DateInput('test');
+    const model = {
+      'test': {
+        type: 'date',
+        change: null,
+        value: []
       }
     }
     expect(ins).toEqual(model);

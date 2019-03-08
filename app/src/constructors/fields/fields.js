@@ -11,6 +11,16 @@ export function Input(name){
   }
 }
 
+export function DateInput(name){
+  return {
+    [name]: {
+      type: 'date',
+      change: null,
+      value: []
+    }
+  }
+}
+
 export function Checkbox(name){
   return {
     [name]: {
