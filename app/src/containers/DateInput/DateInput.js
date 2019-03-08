@@ -13,9 +13,7 @@ const VALUES = {
 
 class DateInput extends Component{
   $mapProps(obj, item){
-    obj.id = "";
-    obj.options = setSelect(VALUES[item]);
-    return obj
+    return {...obj, id: "", options: setSelect(VALUES[item])}
   }
 
   render() {
