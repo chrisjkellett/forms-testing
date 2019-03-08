@@ -45,7 +45,7 @@ describe('models for creating form fields', () => {
       'test': {
         type: 'date',
         change: null,
-        value: moment().format(data.dateFormat)
+        value: moment().format(data.DATE_FORMAT)
       }
     }
     expect(ins).toEqual(model);

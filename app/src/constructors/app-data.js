@@ -1,18 +1,18 @@
 const data = {
-  dateFormat: 'DD-MM-YYYY',
-  levels: [
+  DATE_FORMAT: 'DD-MM-YYYY',
+  LEVELS: [
     "KET",
     "PET",
     "FCE",
     "CAE",
     "CPE"
   ],
-  availability: [
+  AVAILABILITY: [
     "mon-morning",
     "mon-afternoon",
     "mon-evening",
   ],
-  roles: [
+  ROLES: [
     "SE",
     "TL",
     "INV"

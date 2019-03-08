@@ -17,7 +17,7 @@ export function DateInput(name){
     [format(name)]: {
       type: 'date',
       change: null,
-      value: moment().format(data.dateFormat)
+      value: moment().format(data.DATE_FORMAT)
     }
   }
 }
