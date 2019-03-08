@@ -1,4 +1,5 @@
 const data = {
+  dateFormat: 'DD-MM-YYYY',
   levels: [
     "KET",
     "PET",
