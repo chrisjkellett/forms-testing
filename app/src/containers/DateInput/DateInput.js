@@ -2,18 +2,11 @@ import React, { Component } from 'react';
 import {string, func, shape} from 'prop-types';
 import Select from '../Select/Select';
 import {setSelect} from '../../utilities/utilities';
-
-const VALUES = {
-  day: [
-    "1", "2", "3"
-  ],
-  month: [],
-  year: []
-}
+import appData from '../../app-data';
 
 class DateInput extends Component{
   $mapProps(obj, item){
-    return {...obj, id: "", options: setSelect(VALUES[item])}
+    return {...obj, id: "", options: setSelect(appData.DATE_SELECTORS[item])}
   }
 
   render() {

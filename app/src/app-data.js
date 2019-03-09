@@ -1,5 +1,12 @@
 const appData = {
   DATE_FORMAT: 'DD-MM-YYYY',
+  DATE_SELECTORS: {
+    day: [
+      "1", "2", "3"
+    ],
+    month: [],
+    year: []
+  },
   LEVELS: [
     "KET",
     "PET",
