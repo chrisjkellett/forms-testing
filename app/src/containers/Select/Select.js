@@ -5,7 +5,7 @@ import styles from './Select.module.css';
 class Select extends Component {
   $renderOptions(){
     return this.props.data.options.map(item => {
-      return <option key={item.id} id={item.id}>{item.label}</option>
+      return <option key={item.id} value={item.id}>{item.label}</option>
     })
   }
 

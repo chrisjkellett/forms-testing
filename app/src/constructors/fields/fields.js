@@ -38,7 +38,7 @@ export function Select(name){
     [format(name)]: {
       type: 'select',
       change: null,
-      value: options[0].label,
+      value: options[0].id,
       options: options
     }
   }
