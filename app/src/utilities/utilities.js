@@ -10,6 +10,15 @@ export function setSelect(array){
   }
 }
 
+export function setDateSelect(array){
+  return array.map(item => {
+    return {
+      id: item.length === 1 ? "0" + item : item,
+      label: item
+    }
+  })
+}
+
 export function formatId(str){
   return str.replace(/\s/g, "-").toLowerCase();
 }
