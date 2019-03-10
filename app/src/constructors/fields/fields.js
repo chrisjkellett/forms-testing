@@ -1,6 +1,8 @@
 import appData from '../../app-data';
-import {setOptions, setSelect, formatId as format} from '../../utilities/utilities';
+import utilities from '../../utilities/utilities';
 import moment from 'moment';
+
+const format = utilities.formatId;
 
 export function Input(name){
   return {
@@ -27,13 +29,13 @@ export function Checkbox(name){
     [format(name)]: {
       type: 'checkbox',
       change: null,
-      options: setOptions(appData[name])
+      options: utilities.setOptions(appData[name])
     }
   }
 }
 
 export function Select(name){
-  const options = setSelect(appData[name]);
+  const options = utilities.setSelect(appData[name]);
   return {
     [format(name)]: {
       type: 'select',

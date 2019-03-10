@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {string, func, shape} from 'prop-types';
 import Select from '../Select/Select';
-import {setSelect} from '../../utilities/utilities';
+import utilities from '../../utilities/utilities';
 import appData from '../../app-data';
 
 class DateInput extends Component{
   $mapProps(obj, item){
-    return {...obj, id: "", options: setSelect(appData.DATE_SELECTORS[item])}
+    return {...obj, id: "", options: utilities.setSelect(appData.DATE_SELECTORS[item])}
   }
 
   render() {
