@@ -4,7 +4,7 @@ import Field from './Field';
 import Checkbox from '../Checkbox/Checkbox';
 import Input from '../Input/Input';
 import Select from '../Select/Select';
-import DateInput from '../DateInput/DateInput';
+import DateGroup from '../DateGroup/DateGroup';
 
 describe('<Field />', () => {
   
@@ -55,7 +55,7 @@ describe('<Field />', () => {
       value: ''
     }
     const cmp = shallow(<Field data={data} />);
-    expect(cmp.find(DateInput)).toHaveLength(1);
+    expect(cmp.find(DateGroup)).toHaveLength(1);
   })
   
 })

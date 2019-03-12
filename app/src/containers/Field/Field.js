@@ -3,7 +3,7 @@ import {shape, string, func, any} from 'prop-types';
 import Checkbox from '../Checkbox/Checkbox';
 import Input from '../Input/Input';
 import Select from '../Select/Select';
-import DateInput from '../DateInput/DateInput';
+import DateGroup from '../DateGroup/DateGroup';
 
 const Field = props => {
   switch(props.data.type){
@@ -14,7 +14,7 @@ const Field = props => {
     case 'select':
       return <Select data={props.data} />
     case 'date':
-      return <DateInput data={props.data} />
+      return <DateGroup data={props.data} />
     default:
       return (
         <div>

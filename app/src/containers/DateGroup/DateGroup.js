@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {string, func, shape} from 'prop-types';
-import Select from '../Select/Select';
+import DateSelect from '../DateSelect/DateSelect';
 import utilities from '../../utilities/utilities';
 import appData from '../../app-data';
 
@@ -14,7 +14,7 @@ class DateInput extends Component{
       <div>
         <label>{this.props.data.id}</label>
         {["day", "month", "year"].map(item => {
-          return <Select key={item} data={this.$mapProps(this.props.data, item)}/>
+          return <DateSelect key={item} data={this.$mapProps(this.props.data, item)}/>
         })}
         
       </div>
