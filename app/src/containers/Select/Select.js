@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {string, shape, func,arrayOf, object} from 'prop-types';
-import styles from './Select.module.css';
 
 class Select extends Component {
   $renderOptions(){
@@ -9,24 +8,12 @@ class Select extends Component {
     })
   }
 
-  $ifNoId(){
-    if(this.props.data.id[0] === "$"){
-      return styles.Inline
-    }
-  }
-
-  $shouldAddLabel(){
-    if(this.props.data.id[0] !== "$"){
-      return this.props.data.id
-    }
-  }
-
   render() {
     const options = this.$renderOptions();
     const {id, change, value} = this.props.data;
     return (
-      <div id={`${id}-wrapper`} className={this.$ifNoId()}>
-        <label>{this.$shouldAddLabel()}</label>
+      <div id={`${id}-wrapper`}>
+        <label>{id}</label>
         <select id={id} value={value} onChange={change}>
           {options}
         </select>
