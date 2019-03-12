@@ -1,6 +1,6 @@
 import moment from 'moment';
 import {Input, Checkbox, Select, DateInput} from './fields';
-import {setOptions} from '../../utilities/utilities';
+import utilities from '../../utilities/utilities';
 import appData from '../../app-data';
 
 describe('models for creating form fields', () => {
@@ -18,7 +18,7 @@ describe('models for creating form fields', () => {
 
   test('can create an Options model for Checkbox', () => {
     const data = ["value-1", "value-2"];
-    const result = setOptions(data);
+    const result = utilities.setOptions(data);
     expect(result["value-1"]).toEqual({"checked": false});
   })
 
