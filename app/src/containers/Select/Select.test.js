@@ -33,13 +33,13 @@ describe('<Select />', () => {
     })
   })
 
-  describe('without an id', () => {
+  describe('with an id prefixed with $', () => {
     let data, cmp;
 
     beforeAll(() => {
       data = {
         change: jest.fn(),
-        id: '',
+        id: '$test',
         options: [
           {id: 'option1', label: 'option 1'},
           {id: 'option2', label: 'option 2'}
@@ -50,8 +50,12 @@ describe('<Select />', () => {
       cmp = shallow(<Select data={data} />)
     })
     
-    test('adds styles.Inline if id is empty string', () => {
+    test('adds styles.Inline', () => {
       expect(cmp.find('.Inline')).toHaveLength(1);
+    })
+
+    test('does not render the label', () => {
+      expect(cmp.find('label').text()).toBe("");
     })
   })
 

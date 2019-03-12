@@ -10,8 +10,14 @@ class Select extends Component {
   }
 
   $ifNoId(){
-    if(this.props.data.id === ""){
+    if(this.props.data.id[0] === "$"){
       return styles.Inline
+    }
+  }
+
+  $shouldAddLabel(){
+    if(this.props.data.id[0] !== "$"){
+      return this.props.data.id
     }
   }
 
@@ -19,8 +25,8 @@ class Select extends Component {
     const options = this.$renderOptions();
     const {id, change, value} = this.props.data;
     return (
-      <div className={this.$ifNoId()}>
-        <label>{id}</label>
+      <div id={`${id}-wrapper`} className={this.$ifNoId()}>
+        <label>{this.$shouldAddLabel()}</label>
         <select id={id} value={value} onChange={change}>
           {options}
         </select>
