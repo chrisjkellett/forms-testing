@@ -9,6 +9,7 @@ describe('<DateSelect />', () => {
     data = {
       change: jest.fn(),
       id: 'test',
+      groupId: 'test-set',
       options: [
         {id: '01', label: '1'},
         {id: '02', label: '2'}

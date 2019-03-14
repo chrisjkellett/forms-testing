@@ -64,8 +64,21 @@ class Form extends Component {
       this.setState(updated);
     },
 
-    $changeDate: event => {
-      console.log('date');
+    $changeDate: (event, groupId) => {
+      const {id, value} = event.target;
+      const slice = this.state[this.props.id];
+      this.setState({
+        [this.props.id]: {
+          ...slice,
+          [groupId]: {
+            ...slice[groupId],
+            value: {
+              ...slice[groupId].value,
+              [id]: value
+            }
+          }
+        }
+      })
     }
   }
 

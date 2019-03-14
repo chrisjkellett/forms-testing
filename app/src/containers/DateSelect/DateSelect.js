@@ -10,10 +10,10 @@ class DateSelect extends Component {
 
   render() {
     const options = this.$renderOptions();
-    const {id, change, value} = this.props.data;
+    const {id, change, value, groupId} = this.props.data;
     return (
       <span id={`${id}-wrapper`}>
-        <select id={id} value={value[id]} onChange={change}>
+        <select id={id} value={value[id]} onChange={(e) => change(e, groupId)}>
           {options}
         </select>
       </span>
@@ -25,6 +25,7 @@ class DateSelect extends Component {
 DateSelect.propTypes = {
   data: shape({
     change: func.isRequired,
+    groupId: string.isRequired,
     id: string.isRequired,
     options: arrayOf(object).isRequired,
     type: string.isRequired,
