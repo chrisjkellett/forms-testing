@@ -11,10 +11,17 @@ const utilities = {
   },
 
   setDateSelect: function(array){
-    return array.map(item => {
-      return {
-        id: item.length === 1 ? "0" + item : item,
-        label: item
+    return array.map((item, index) => {
+      if(!isNaN(+item))
+        return {
+          id: item.length === 1 ? "0" + item : item,
+          label: item
+        }
+      else {
+        return {
+          id: index < 9 ? "0" + (index + 1): index + 1,
+          label: item
+        }
       }
     })
   },

@@ -10,13 +10,23 @@ describe('data utilities', () => {
     }])
   })
 
-  test('setDateSelect() maps array item to obj with id and label', () => {
+  test('setDateSelect() maps array item to obj with id and label for days', () => {
     const array = ["1", "2", "11"];
     const result = utilities.setDateSelect(array);
     expect(result).toEqual([
       {id: "01", label: "1"},
       {id: "02", label: "2"},
       {id: "11", label: "11"}
+    ])
+  })
+
+  test('setDateSelect() maps array item to obj with id and label for months', () => {
+    const array = ["January", "February", "March"];
+    const result = utilities.setDateSelect(array);
+    expect(result).toEqual([
+      {id: "01", label: "January"},
+      {id: "02", label: "February"},
+      {id: "03", label: "March"}
     ])
   })
     

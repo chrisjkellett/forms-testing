@@ -1,11 +1,27 @@
 import utilities from './utilities/utilities';
+import moment from 'moment';
+
+const year = moment().format('Y');
 
 const appData = {
   DATE_FORMAT: 'DD-MM-YYYY',
   DATE_SELECTORS: {
     day: utilities.generateDays(),
-    month: [],
-    year: []
+    month: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    year: [year, parseInt(year) + 1]
   },
   LEVELS: [
     "KET",
