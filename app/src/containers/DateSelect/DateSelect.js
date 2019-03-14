@@ -13,7 +13,7 @@ class DateSelect extends Component {
     const {id, change, value} = this.props.data;
     return (
       <span id={`${id}-wrapper`}>
-        <select id={id} value={value} onChange={change}>
+        <select id={id} value={value[id]} onChange={change}>
           {options}
         </select>
       </span>
@@ -28,7 +28,11 @@ DateSelect.propTypes = {
     id: string.isRequired,
     options: arrayOf(object).isRequired,
     type: string.isRequired,
-    value: string.isRequired
+    value: shape({
+      day: string.isRequired,
+      month: string.isRequired,
+      year: string.isRequired
+    })
   })
 }
 

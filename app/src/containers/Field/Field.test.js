@@ -52,7 +52,11 @@ describe('<Field />', () => {
       change: jest.fn(),
       id: 'test',
       type: 'date',
-      value: ''
+      value: {
+        day: '01',
+        month: '01',
+        year: '2019'
+      }
     }
     const cmp = shallow(<Field data={data} />);
     expect(cmp.find(DateGroup)).toHaveLength(1);

@@ -10,7 +10,11 @@ describe('<DateGroup />', () => {
     change: jest.fn(),
     id: 'test',
     type: 'date',
-    value: moment().format(appData.DATE_FORMAT)
+    value: {
+      day: '01',
+      month: '01',
+      year: '2019'
+    }
   }
   const cmp = shallow(<DateGroup data={cmp_data} />);
   

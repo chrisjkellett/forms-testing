@@ -41,11 +41,16 @@ describe('models for creating form fields', () => {
   
   test('can create a DateInput model', () => {
     const ins = new DateInput('test');
+    const today = moment();
     const model = {
       'test': {
         type: 'date',
         change: null,
-        value: moment().format(appData.DATE_FORMAT)
+        value: {
+          day: today.format(appData.DATE_FORMAT.DAY),
+          month: today.format(appData.DATE_FORMAT.MONTH),
+          year: today.format(appData.DATE_FORMAT.YEAR)
+        }
       }
     }
     expect(ins).toEqual(model);

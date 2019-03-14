@@ -4,7 +4,11 @@ import moment from 'moment';
 const year = moment().format('Y');
 
 const appData = {
-  DATE_FORMAT: 'DD-MM-YYYY',
+  DATE_FORMAT: {
+    DAY: 'DD',
+    MONTH: 'MM',
+    YEAR: 'YYYY'
+  },
   DATE_SELECTORS: {
     day: utilities.generateDays(),
     month: [

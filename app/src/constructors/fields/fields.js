@@ -15,11 +15,16 @@ export function Input(name){
 }
 
 export function DateInput(name){
+  const today = moment();
   return {
     [format(name)]: {
       type: 'date',
       change: null,
-      value: moment().format(appData.DATE_FORMAT)
+      value: {
+        day: today.format(appData.DATE_FORMAT.DAY),
+        month: today.format(appData.DATE_FORMAT.MONTH),
+        year: today.format(appData.DATE_FORMAT.YEAR)
+      }
     }
   }
 }

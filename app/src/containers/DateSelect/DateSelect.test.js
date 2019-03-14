@@ -14,7 +14,11 @@ describe('<DateSelect />', () => {
         {id: '02', label: '2'}
       ],
       type: 'select',
-      value: '01'
+      value: {
+        day: '01',
+        month: '01',
+        year: '2019'
+      }
     }
     cmp = shallow(<DateSelect data={data} />)
   })

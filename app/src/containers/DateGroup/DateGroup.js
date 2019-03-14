@@ -27,7 +27,11 @@ DateInput.propTypes = {
     change: func.isRequired,
     id: string.isRequired,
     type: string.isRequired,
-    value: string.isRequired
+    value: shape({
+      day: string.isRequired,
+      month: string.isRequired,
+      year: string.isRequired
+    })
   })
 }
 
