@@ -36,6 +36,12 @@ const utilities = {
     else {
       return null;
     }
+  },
+
+  generateDays: function(){
+    const days = [...Array(32).keys()];
+    days.splice(0, 1);
+    return days.map(d => d.toString());
   }
 }
 

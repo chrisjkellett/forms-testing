@@ -25,6 +25,13 @@ describe('data utilities', () => {
     const result = utilities.formatId(string);
     expect(result).toBe("hello-world");
   })
+
+  test('generateDays() returns an array of numbers 1 - 31 inclusive', () => {
+    const result = utilities.generateDays();
+    expect(result[0]).toBe("1");
+    expect(result[30]).toBe("31");
+  })
+  
   
 })
 
