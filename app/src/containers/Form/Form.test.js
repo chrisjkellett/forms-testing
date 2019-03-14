@@ -30,6 +30,11 @@ describe('<Form />', () => {
         {id: 'option2', label: 'Option 2'}
       ],
       value: ''
+    },
+    'test-date': {
+      type: 'date',
+      change: null,
+      value: '14-03-2019'
     }
   }
   
@@ -83,6 +88,17 @@ describe('<Form />', () => {
   })
 
   test('controls a Select', () => {
+    const event = {
+      target: {
+        id: 'test-select',
+        value: 'Option 2'
+      }
+    }
+    instance.handlers.$change(event);
+    expect(cmp.state()[id][event.target.id].value).toBe('Option 2');
+  })
+
+  test('controls a DateGroup', () => {
     const event = {
       target: {
         id: 'test-select',

@@ -15,6 +15,9 @@ class Form extends Component {
         case 'checkbox':
           model[item].change = this.handlers.$changeCheckbox;
           break;
+        case 'date':
+          model[item].change = this.handlers.$changeDate;
+          break;
         default:
           model[item].change = this.handlers.$change;
       }
@@ -59,6 +62,10 @@ class Form extends Component {
       const slice = this.state[this.props.id];
       const updated = this.$getCheckboxState(id, checked, group, slice)
       this.setState(updated);
+    },
+
+    $changeDate: event => {
+      console.log('date');
     }
   }
 
