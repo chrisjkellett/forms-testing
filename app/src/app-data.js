@@ -1,9 +1,9 @@
+import utilities from './utilities/utilities';
+
 const appData = {
   DATE_FORMAT: 'DD-MM-YYYY',
   DATE_SELECTORS: {
-    day: [
-      "1", "2", "3"
-    ],
+    day: utilities.generateDays(),
     month: [],
     year: []
   },

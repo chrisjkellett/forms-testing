@@ -6,7 +6,7 @@ import appData from '../../app-data';
 
 class DateInput extends Component{
   $mapProps(obj, item){
-    return {...obj, id: item, options: utilities.setSelect(appData.DATE_SELECTORS[item])}
+    return {...obj, id: item, options: utilities.setDateSelect(appData.DATE_SELECTORS[item])}
   }
 
   render() {
