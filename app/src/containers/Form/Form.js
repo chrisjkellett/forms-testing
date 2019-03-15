@@ -60,8 +60,20 @@ class Form extends Component {
       const {id, attributes, checked} = event.target;
       const group = attributes.group.value;
       const slice = this.state[this.props.id];
-      const updated = this.$getCheckboxState(id, checked, group, slice)
-      this.setState(updated);
+      this.setState({
+        [this.props.id]: {
+          ...slice,
+          [group]: {
+            ...slice[group],
+            options: {
+              ...slice[group].options,
+              [id]: {
+                checked: checked
+              }
+            }
+          }
+        }
+      });
     },
 
     $changeDate: (event, groupId) => {
@@ -79,23 +91,6 @@ class Form extends Component {
           }
         }
       })
-    }
-  }
-
-  $getCheckboxState(id, checked, group, slice){
-    return {
-      [this.props.id]: {
-        ...slice,
-        [group]: {
-          ...slice[group],
-          options: {
-            ...slice[group].options,
-            [id]: {
-              checked: checked
-            }
-          }
-        }
-      }
     }
   }
 
