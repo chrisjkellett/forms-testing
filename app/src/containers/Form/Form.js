@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {string, object} from 'prop-types';
 import Field from '../Field/Field';
-import {updateField} from './tools';
+import {updateField} from './helpers';
 
 class Form extends Component {
   componentWillMount(){
