@@ -11,14 +11,7 @@ class Form extends Component {
   $mapHandlers(){
     const {model} = this.props;
     Object.keys(model).forEach(item => {
-      switch(model[item].type){
-        case 'date':
-        case 'checkbox':
-          model[item].change = this.$changeCheckbox;
-          break;
-        default:
-          model[item].change = this.$change;
-      }
+      model[item].change = this.$change;
     })
   }
 
@@ -39,26 +32,16 @@ class Form extends Component {
     });
   }
 
-  $change = event => {
-    const {id, value} = event.target;
-    const slice = this.state[this.props.id];
-    this.setState({
-      [this.props.id]: {
-        ...slice,
-        [id]: {
-          ...slice[id],
-          value: value
-        }
-      }
-    })
+  $change = (event, group) => {
+    const updated = this.$updateObject(event, group);
+    this.$updateState(updated);
   }
 
-  $changeCheckbox = (event, group) => {
+  $updateObject(event, group){
     const {id, checked, value} = event.target;
     const slice = this.state[this.props.id];
-    this.setState({
-      [this.props.id]: {
-        ...slice,
+    if(group){
+      return {
         [group]: {
           ...slice[group],
           value: {
@@ -67,7 +50,25 @@ class Form extends Component {
           }
         }
       }
-    });
+    }
+    else {
+      return {
+        [id]: {
+          ...slice[id],
+          value: value
+        }
+      }
+    }
+  }
+
+  $updateState(object){
+    const slice = this.state[this.props.id];
+    this.setState({
+      [this.props.id]: {
+        ...slice, 
+        ...object
+      }
+    })
   }
 
   submit(event){

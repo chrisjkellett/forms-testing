@@ -71,7 +71,7 @@ describe('<Form />', () => {
       }
     }
 
-    instance.$changeCheckbox(event, testCheckbox);
+    instance.$change(event, testCheckbox);
     expect(cmp.state()[id][group].value[testOption]).toBe(true);
   })
 
@@ -105,7 +105,7 @@ describe('<Form />', () => {
         value: '02'
       }
     }
-    instance.$changeCheckbox(event, group);
+    instance.$change(event, group);
     expect(cmp.state()[id][group].value[event.target.id]).toBe(event.target.value);
   })
 
