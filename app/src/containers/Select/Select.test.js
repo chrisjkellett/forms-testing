@@ -9,8 +9,8 @@ describe('<Select />', () => {
       change: jest.fn(),
       id: 'test',
       options: [
-        {id: 'option1', label: 'option 1'},
-        {id: 'option2', label: 'option 2'}
+        {value: 'option1', label: 'option 1'},
+        {value: 'option2', label: 'option 2'}
       ],
       type: 'select',
       value: 'option1'

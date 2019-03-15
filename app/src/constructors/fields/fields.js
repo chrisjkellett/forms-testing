@@ -40,12 +40,12 @@ export function Checkbox(name){
 }
 
 export function Select(name){
-  const options = utilities.setSelect(appData[name]);
+  const options = utilities.setSelectValues(appData[name]);
   return {
     [format(name)]: {
       type: 'select',
       change: null,
-      value: options[0].id,
+      value: options[0].value,
       options: options
     }
   }

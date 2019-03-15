@@ -1,8 +1,8 @@
 const utilities = {
-  setSelect: function(array){
+  setSelectValues: function(array){
     if(array){
       return array.map(item => {
-        return {id: this.formatId(item), label: item}
+        return {value: this.formatId(item), label: item}
       })
     }
     else {

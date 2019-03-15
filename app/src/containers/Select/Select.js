@@ -4,7 +4,7 @@ import {string, shape, func,arrayOf, object} from 'prop-types';
 class Select extends Component {
   $renderOptions(){
     return this.props.data.options.map(item => {
-      return <option key={item.id} value={item.id}>{item.label}</option>
+      return <option key={item.value} value={item.value}>{item.label}</option>
     })
   }
 

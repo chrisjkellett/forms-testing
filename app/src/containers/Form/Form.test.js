@@ -95,11 +95,11 @@ describe('<Form />', () => {
     const event = {
       target: {
         id: 'test-select',
-        value: 'Option 2'
+        value: 'option-2'
       }
     }
     instance.handlers.$change(event);
-    expect(cmp.state()[id][event.target.id].value).toBe('Option 2');
+    expect(cmp.state()[id][event.target.id].value).toBe('option-2');
   })
 
   test('controls a DateGroup', () => {
@@ -118,7 +118,6 @@ describe('<Form />', () => {
     const result = instance.pullObjectFromState();
     console.log(result);
   })
-  
   
   
 })

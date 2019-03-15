@@ -1,11 +1,11 @@
 import utilities from './utilities';
 
 describe('data utilities', () => {
-  test('setSelect() maps array item to obj with id and label', () => {
+  test('setSelectValues() maps array item to obj with id and label', () => {
     const array = ["value 1"];
-    const result = utilities.setSelect(array);
+    const result = utilities.setSelectValues(array);
     expect(result).toEqual([{
-      id: "value-1",
+      value: "value-1",
       label: "value 1"
     }])
   })
