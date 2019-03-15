@@ -67,16 +67,11 @@ describe('<Form />', () => {
     const event = {
       target: {
         id: testOption,
-        attributes: {
-          group: {
-            value: group
-          }
-        },
         checked: true
       }
     }
 
-    instance.handlers.$changeCheckbox(event);
+    instance.handlers.$changeCheckbox(event, testCheckbox);
     expect(cmp.state()[id][group].value[testOption]).toBe(true);
   })
 
@@ -103,15 +98,15 @@ describe('<Form />', () => {
   })
 
   test('controls a DateGroup', () => {
+    const group = 'test-date';
     const event = {
       target: {
         id: 'day',
         value: '02'
       }
     }
-    const groupId = 'test-date';
-    instance.handlers.$changeDate(event, groupId);
-    expect(cmp.state()[id][groupId].value[event.target.id]).toBe(event.target.value);
+    instance.handlers.$changeCheckbox(event, group);
+    expect(cmp.state()[id][group].value[event.target.id]).toBe(event.target.value);
   })
 
   test('pullObjectFromState() returns an object with values on submit', () => {

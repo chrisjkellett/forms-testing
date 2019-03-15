@@ -10,10 +10,9 @@ class Checkbox extends Component {
           <label>{item}</label>
           <input 
             type={type} 
-            group={id} 
             value={value[item]} 
             id={item}
-            onChange={change} />
+            onChange={(e) => change(e, id)} />
         </span>
       )
     })

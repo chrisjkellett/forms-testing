@@ -16,7 +16,7 @@ class Form extends Component {
           model[item].change = this.handlers.$changeCheckbox;
           break;
         case 'date':
-          model[item].change = this.handlers.$changeDate;
+          model[item].change = this.handlers.$changeCheckbox;
           break;
         default:
           model[item].change = this.handlers.$change;
@@ -56,9 +56,8 @@ class Form extends Component {
       })
     },
 
-    $changeCheckbox: event => {
-      const {id, attributes, checked} = event.target;
-      const group = attributes.group.value;
+    $changeCheckbox: (event, group) => {
+      const {id, checked, value} = event.target;
       const slice = this.state[this.props.id];
       this.setState({
         [this.props.id]: {
@@ -67,28 +66,11 @@ class Form extends Component {
             ...slice[group],
             value: {
               ...slice[group].value,
-              [id]: checked
+              [id]: value ? value : checked
             }
           }
         }
       });
-    },
-
-    $changeDate: (event, groupId) => {
-      const {id, value} = event.target;
-      const slice = this.state[this.props.id];
-      this.setState({
-        [this.props.id]: {
-          ...slice,
-          [groupId]: {
-            ...slice[groupId],
-            value: {
-              ...slice[groupId].value,
-              [id]: value
-            }
-          }
-        }
-      })
     }
   }
 
