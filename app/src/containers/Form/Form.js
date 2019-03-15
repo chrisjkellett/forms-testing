@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {string, object} from 'prop-types';
 import Field from '../Field/Field';
+import {updateField} from './tools';
 
 class Form extends Component {
   componentWillMount(){
@@ -33,32 +34,9 @@ class Form extends Component {
   }
 
   $change = (event, group) => {
-    const updated = this.$updateObject(event, group);
-    this.$updateState(updated);
-  }
-
-  $updateObject(event, group){
-    const {id, checked, value} = event.target;
     const slice = this.state[this.props.id];
-    if(group){
-      return {
-        [group]: {
-          ...slice[group],
-          value: {
-            ...slice[group].value,
-            [id]: value ? value : checked
-          }
-        }
-      }
-    }
-    else {
-      return {
-        [id]: {
-          ...slice[id],
-          value: value
-        }
-      }
-    }
+    const updated = updateField(event, group, slice);
+    this.$updateState(updated);
   }
 
   $updateState(object){
