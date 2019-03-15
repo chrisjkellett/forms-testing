@@ -71,7 +71,7 @@ describe('<Form />', () => {
       }
     }
 
-    instance.handlers.$changeCheckbox(event, testCheckbox);
+    instance.$changeCheckbox(event, testCheckbox);
     expect(cmp.state()[id][group].value[testOption]).toBe(true);
   })
 
@@ -82,7 +82,7 @@ describe('<Form />', () => {
         value: 'hello'
       }
     }
-    instance.handlers.$change(event);
+    instance.$change(event);
     expect(cmp.state()[id][event.target.id].value).toBe('hello');
   })
 
@@ -93,7 +93,7 @@ describe('<Form />', () => {
         value: 'option-2'
       }
     }
-    instance.handlers.$change(event);
+    instance.$change(event);
     expect(cmp.state()[id][event.target.id].value).toBe('option-2');
   })
 
@@ -105,13 +105,13 @@ describe('<Form />', () => {
         value: '02'
       }
     }
-    instance.handlers.$changeCheckbox(event, group);
+    instance.$changeCheckbox(event, group);
     expect(cmp.state()[id][group].value[event.target.id]).toBe(event.target.value);
   })
 
   test('pullObjectFromState() returns an object with values on submit', () => {
     const result = instance.pullObjectFromState();
-    console.log(result);
+    // console.log(result);
   })
   
   

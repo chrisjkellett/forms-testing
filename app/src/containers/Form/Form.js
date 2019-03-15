@@ -12,14 +12,12 @@ class Form extends Component {
     const {model} = this.props;
     Object.keys(model).forEach(item => {
       switch(model[item].type){
-        case 'checkbox':
-          model[item].change = this.handlers.$changeCheckbox;
-          break;
         case 'date':
-          model[item].change = this.handlers.$changeCheckbox;
+        case 'checkbox':
+          model[item].change = this.$changeCheckbox;
           break;
         default:
-          model[item].change = this.handlers.$change;
+          model[item].change = this.$change;
       }
     })
   }
@@ -41,37 +39,35 @@ class Form extends Component {
     });
   }
 
-  handlers = {
-    $change: event => {
-      const {id, value} = event.target;
-      const slice = this.state[this.props.id];
-      this.setState({
-        [this.props.id]: {
-          ...slice,
-          [id]: {
-            ...slice[id],
-            value: value
-          }
+  $change = event => {
+    const {id, value} = event.target;
+    const slice = this.state[this.props.id];
+    this.setState({
+      [this.props.id]: {
+        ...slice,
+        [id]: {
+          ...slice[id],
+          value: value
         }
-      })
-    },
+      }
+    })
+  }
 
-    $changeCheckbox: (event, group) => {
-      const {id, checked, value} = event.target;
-      const slice = this.state[this.props.id];
-      this.setState({
-        [this.props.id]: {
-          ...slice,
-          [group]: {
-            ...slice[group],
-            value: {
-              ...slice[group].value,
-              [id]: value ? value : checked
-            }
+  $changeCheckbox = (event, group) => {
+    const {id, checked, value} = event.target;
+    const slice = this.state[this.props.id];
+    this.setState({
+      [this.props.id]: {
+        ...slice,
+        [group]: {
+          ...slice[group],
+          value: {
+            ...slice[group].value,
+            [id]: value ? value : checked
           }
         }
-      });
-    }
+      }
+    });
   }
 
   submit(event){
