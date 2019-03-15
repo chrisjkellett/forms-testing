@@ -12,9 +12,9 @@ describe('<Field />', () => {
     const data = {
       change: jest.fn(),
       id: 'test',
-      options: {
-        'test-1': { checked: false },
-        'test-2': { checked: false }
+      value: {
+        'test-1': false,
+        'test-2': false
       },
       type: 'checkbox'
     }

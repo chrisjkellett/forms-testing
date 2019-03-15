@@ -3,15 +3,15 @@ import {string, func, object, shape} from 'prop-types';
 
 class Checkbox extends Component {
   $renderOptions(){
-    const {change, id, type, options} = this.props.data;
-    return Object.keys(options).map(item => {
+    const {change, id, type, value} = this.props.data;
+    return Object.keys(value).map(item => {
       return (
         <span key={item}>
           <label>{item}</label>
           <input 
             type={type} 
             group={id} 
-            value={options[item].checked} 
+            value={value[item]} 
             id={item}
             onChange={change} />
         </span>
@@ -35,7 +35,7 @@ Checkbox.propTypes = {
     change: func.isRequired,
     id: string.isRequired,
     type: string.isRequired,
-    options: object.isRequired
+    value: object.isRequired
   })
 }
 

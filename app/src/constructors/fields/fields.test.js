@@ -18,8 +18,8 @@ describe('models for creating form fields', () => {
 
   test('can create an Options model for Checkbox', () => {
     const data = ["value-1", "value-2"];
-    const result = utilities.setOptions(data);
-    expect(result["value-1"]).toEqual({"checked": false});
+    const result = utilities.setCheckBoxValues(data);
+    expect(result["value-1"]).toEqual(false);
   })
 
   test('can create a Select model', () => {

@@ -10,6 +10,16 @@ describe('data utilities', () => {
     }])
   })
 
+  test('setCheckBoxValues() creates an array of objects for checklist values', () => {
+    const array = ["value 1", "value 2"];
+    const result = utilities.setCheckBoxValues(array);
+    expect(result).toEqual({
+      "value 1": false,
+      "value 2": false
+    })
+  })
+  
+
   test('setDateSelect() maps array item to obj with id and label for days', () => {
     const array = ["1", "2", "11"];
     const result = utilities.setDateSelect(array);

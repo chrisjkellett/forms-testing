@@ -30,13 +30,11 @@ const utilities = {
     return str.replace(/\s/g, "-").toLowerCase();
   },
 
-  setOptions: function(array){
+  setCheckBoxValues: function(array){
     if(array){
       let obj = {};
       array.forEach(item => {
-        obj[item] = {
-          checked: false
-        }
+        obj[item] = false
       })
       return obj;
     }

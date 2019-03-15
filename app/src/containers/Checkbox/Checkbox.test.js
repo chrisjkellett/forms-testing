@@ -6,16 +6,16 @@ describe('<Checkbox />', () => {
   const data = {
     change: jest.fn(),
     id: 'test',
-    options: {
-      'test-1': { checked: false },
-      'test-2': { checked: false }
+    value: {
+      'test-1': false,
+      'test-2': false
     },
     type: 'checkbox'
   }
   const cmp = shallow(<Checkbox data={data} />);
   
   test('renders a checkbox for each option', () => {
-    const numberOfOptions = Object.keys(data.options).length;
+    const numberOfOptions = Object.keys(data.value).length;
     expect(cmp.find('input')).toHaveLength(numberOfOptions);
   })
 })

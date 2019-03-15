@@ -65,11 +65,9 @@ class Form extends Component {
           ...slice,
           [group]: {
             ...slice[group],
-            options: {
-              ...slice[group].options,
-              [id]: {
-                checked: checked
-              }
+            value: {
+              ...slice[group].value,
+              [id]: checked
             }
           }
         }

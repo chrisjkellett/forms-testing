@@ -34,7 +34,7 @@ export function Checkbox(name){
     [format(name)]: {
       type: 'checkbox',
       change: null,
-      options: utilities.setOptions(appData[name])
+      value: utilities.setCheckBoxValues(appData[name])
     }
   }
 }
