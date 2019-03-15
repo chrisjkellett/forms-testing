@@ -94,12 +94,27 @@ class Form extends Component {
     }
   }
 
+  submit(event){
+    event.preventDefault();
+    this.pullObjectFromState();
+  }
+
+  pullObjectFromState(){
+    const slice = this.state[this.props.id];
+    let obj = {};
+    Object.keys(slice).forEach(item => {
+      obj[item] = slice[item].value
+    });
+    return obj;
+  }
+
   render() {
     const fields = this.$mapFields();
     return (
-      <div>
+      <form onSubmit={this.submit}>
         {fields}
-      </div>
+        <button>submit</button>
+      </form>
     )
   }
 }

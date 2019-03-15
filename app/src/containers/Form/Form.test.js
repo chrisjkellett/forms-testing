@@ -113,6 +113,12 @@ describe('<Form />', () => {
     instance.handlers.$changeDate(event, groupId);
     expect(cmp.state()[id][groupId].value[event.target.id]).toBe(event.target.value);
   })
+
+  test('pullObjectFromState() returns an object with values on submit', () => {
+    const result = instance.pullObjectFromState();
+    console.log(result);
+  })
+  
   
   
 })
