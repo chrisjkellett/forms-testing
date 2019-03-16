@@ -6,7 +6,7 @@ export const updateField = (event, group, slice) => {
         ...slice[group],
         value: {
           ...slice[group].value,
-          [id]: value ? value : checked
+          [id]: checked || checked === false ? checked : value
         }
       }
     }
