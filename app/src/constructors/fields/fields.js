@@ -39,7 +39,11 @@ export function Checkbox(name){
     [format(name)]: {
       type: 'checkbox',
       change: null,
-      value: utilities.setCheckBoxValues(appData[name])
+      value: utilities.setCheckBoxValues(appData[name]),
+      valid: false,
+      validation: {
+        required_cb: true
+      }
     }
   }
 }

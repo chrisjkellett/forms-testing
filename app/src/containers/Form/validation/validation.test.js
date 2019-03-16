@@ -32,5 +32,20 @@ describe('<Form /> validation', () => {
       expect(obj['test'].valid).toBe(false)
     })
   })
+
+  describe('required_cb: true', () => {
+    test('is valid when at least one checkbox is marked true', () => {
+      const obj = createObjForValidation('required_cb', {a: false, b: true});
+      validation.checkField(obj, 'test');
+      expect(obj['test'].valid).toBe(true);
+    })
+
+    test('is invalid when no checkbox is marked true', () => {
+      const obj = createObjForValidation('required_cb', {a: false, b: false});
+      validation.checkField(obj, 'test');
+      expect(obj['test'].valid).toBe(false);
+    })
+
+  })
   
 })
