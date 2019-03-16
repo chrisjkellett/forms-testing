@@ -4,7 +4,7 @@ import moment from 'moment';
 
 const format = utilities.formatId;
 
-export function Input(name){
+export function Input(name, rules){
   return {
     [format(name)]: {
       type: 'text',
@@ -12,7 +12,7 @@ export function Input(name){
       change: null,
       valid: false,
       validation: {
-        required: true
+        ...rules
       }
     }
   }
