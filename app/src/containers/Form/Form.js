@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {string, object} from 'prop-types';
 import Field from '../Field/Field';
-import {updateField} from './helpers';
+import {updateField, prepareForSubmit} from './helpers';
 
 class Form extends Component {
   componentWillMount(){
     this.$mapHandlers();
-    this.$mapStateFromProps();
+    this.$mapStateFromProps();    
   }
 
   $mapHandlers(){
@@ -49,18 +49,11 @@ class Form extends Component {
     })
   }
 
-  submit(event){
+  $submit(event){
+    const slice = this.state[this.props.id]
     event.preventDefault();
-    this.pullObjectFromState();
-  }
-
-  pullObjectFromState(){
-    const slice = this.state[this.props.id];
-    let obj = {};
-    Object.keys(slice).forEach(item => {
-      obj[item] = slice[item].value
-    });
-    return obj;
+    const submitted = prepareForSubmit(slice);
+    console.log(submitted);
   }
 
   render() {

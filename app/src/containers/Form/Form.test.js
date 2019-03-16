@@ -109,9 +109,11 @@ describe('<Form />', () => {
     expect(cmp.state()[id][group].value[event.target.id]).toBe(event.target.value);
   })
 
-  test('pullObjectFromState() returns an object with values on submit', () => {
-    const result = instance.pullObjectFromState();
-    // console.log(result);
+  test('can prepare an object for db on submit', () => {
+    const event = {
+      preventDefault: jest.fn()
+    }
+    const result = instance.$submit(event);
   })
   
   
