@@ -12,6 +12,7 @@ export function Input(name, rules){
       change: null,
       valid: false,
       validation: {
+        required: true,
         ...rules
       }
     }
