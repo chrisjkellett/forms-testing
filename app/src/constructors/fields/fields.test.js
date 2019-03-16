@@ -4,10 +4,11 @@ import utilities from '../../utilities/utilities';
 import appData from '../../app-data';
 
 describe('models for creating form fields', () => {
-  test('can create an Input model', () => {
+  test('can create an Input model with validation', () => {
     const key = 'test';
     const inputModel = new Input(key);
     expect(inputModel[key]).toBeDefined();
+    expect(inputModel[key].validation).toBeDefined();
   })
 
   test('can create a Checkbox model', () => {

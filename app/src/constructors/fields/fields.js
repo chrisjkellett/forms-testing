@@ -9,7 +9,11 @@ export function Input(name){
     [format(name)]: {
       type: 'text',
       value: '',
-      change: null
+      change: null,
+      valid: false,
+      validation: {
+        required: true
+      }
     }
   }
 }
