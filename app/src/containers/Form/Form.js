@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {string, object} from 'prop-types';
 import Field from '../Field/Field';
 import {updateField, prepareForSubmit} from './helpers';
+import validation from './validation/validation';
 
 class Form extends Component {
   componentWillMount(){
@@ -36,6 +37,7 @@ class Form extends Component {
   $change = (event, group) => {
     const slice = this.state[this.props.id];
     const updated = updateField(event, group, slice);
+    validation.checkField(updated, event.target.id);
     this.$updateState(updated);
   }
 
