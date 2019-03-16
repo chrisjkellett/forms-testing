@@ -25,6 +25,12 @@ describe('<Form /> validation', () => {
       validation.checkField(obj, 'test');
       expect(obj['test'].valid).toBe(false)
     })
+
+    test('is invalid when value is string is whitespace', () => {
+      const obj = createObjForValidation('required', ' ');
+      validation.checkField(obj, 'test');
+      expect(obj['test'].valid).toBe(false)
+    })
   })
   
 })

@@ -1,6 +1,9 @@
 const validation = {
   checkField: function(obj, id){
-    obj[id].valid = true
+    const rules = obj[id].validation;
+    if(rules.required){
+      obj[id].valid = obj[id].value.trim() !== ''
+    }
     return obj;
   }
 }
