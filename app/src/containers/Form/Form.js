@@ -37,7 +37,8 @@ class Form extends Component {
   $change = (event, group) => {
     const slice = this.state[this.props.id];
     const updated = updateField(event, group, slice);
-    validation.checkField(updated, event.target.id);
+    const fieldId = group || event.target.id;
+    validation.checkField(updated, fieldId);
     this.$updateState(updated);
   }
 
