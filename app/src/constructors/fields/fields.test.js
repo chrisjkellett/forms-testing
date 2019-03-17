@@ -41,7 +41,7 @@ describe('models for creating form fields', () => {
     expect(ins).toEqual(model);
   })
   
-  test('can create a DateInput model', () => {
+  test('can create a DateInput model with validation', () => {
     const ins = new DateInput('test');
     const today = moment();
     const model = {
@@ -52,6 +52,10 @@ describe('models for creating form fields', () => {
           day: today.format(appData.DATE_FORMAT.DAY),
           month: today.format(appData.DATE_FORMAT.MONTH),
           year: today.format(appData.DATE_FORMAT.YEAR)
+        },
+        valid: true,
+        validaton: {
+          is_valid_date: true
         }
       }
     }

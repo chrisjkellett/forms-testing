@@ -29,6 +29,10 @@ export function DateInput(name){
         day: today.format(appData.DATE_FORMAT.DAY),
         month: today.format(appData.DATE_FORMAT.MONTH),
         year: today.format(appData.DATE_FORMAT.YEAR)
+      },
+      valid: true,
+      validaton: {
+        is_valid_date: true
       }
     }
   }

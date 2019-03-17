@@ -55,8 +55,7 @@ class Form extends Component {
   $submit(event){
     const slice = this.state[this.props.id]
     event.preventDefault();
-    const submitted = prepareForSubmit(slice);
-    console.log(submitted);
+    // const submitted = prepareForSubmit(slice);
   }
 
   render() {
