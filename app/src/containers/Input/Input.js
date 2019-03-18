@@ -1,14 +1,28 @@
-import React from 'react';
-import {shape, string, func} from 'prop-types';
+import React, {Component} from 'react';
+import {shape, string, func, array} from 'prop-types';
+import styles from './Input.module.css';
 
-const Input = props => {
-  const {id, type, change, value} = props.data;
-  return (
-    <div>
-      <label>{id}</label>
-      <input type={type} id={id} value={value} onChange={change} />
-    </div>
-  )
+class Input extends Component {
+  $styles(){
+    if(this.props.data.errors.length !== 0){
+      return styles.Error;
+    }
+  }
+
+  render() {
+    const {id, type, change, value} = this.props.data;
+    return (
+      <div>
+        <label>{id}</label>
+        <input 
+          type={type} 
+          id={id}
+          className={this.$styles()} 
+          value={value} 
+          onChange={change} />
+      </div>
+    )
+  }
 }
 
 Input.propTypes = {
@@ -17,6 +31,7 @@ Input.propTypes = {
     id: string.isRequired,
     type: string.isRequired,
     value: string.isRequired,
+    errors: array
   })
 }
 

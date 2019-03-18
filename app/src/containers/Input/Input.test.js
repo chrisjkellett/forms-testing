@@ -3,16 +3,48 @@ import Input from './Input';
 import {shallow} from 'enzyme';
 
 describe('<Input />', () => {
-  const data = {
-    id: 'test',
-    type: 'text',
-    change: jest.fn(),
-    value: ''
-  }
-  const cmp = shallow(<Input data={data} />)
-  test('renders an input', () => {
-    const input = cmp.find('#test');
-    expect(input).toHaveLength(1);
+  describe('without errors', () => {
+    const data = {
+      id: 'test',
+      type: 'text',
+      change: jest.fn(),
+      errors: [],
+      value: 'a_value'
+    }
+    const cmp = shallow(<Input data={data} />)
+    
+    test('renders an input', () => {
+      const input = cmp.find('#test');
+      expect(input).toHaveLength(1);
+    })
+  
+    test('assigns Error class when errors present', () => {
+      const inputWithError = cmp.find('.Error');
+      expect(inputWithError).toHaveLength(0);
+    })
   })
+
+  describe('with errors', () => {
+    const data = {
+      id: 'test',
+      type: 'text',
+      change: jest.fn(),
+      errors: ['required'],
+      value: ''
+    }
+    const cmp = shallow(<Input data={data} />)
+    
+    test('renders an input', () => {
+      const input = cmp.find('#test');
+      expect(input).toHaveLength(1);
+    })
+  
+    test('assigns Error class when errors present', () => {
+      const inputWithError = cmp.find('.Error');
+      expect(inputWithError).toHaveLength(1);
+    })
+  })
+  
+  
   
 })

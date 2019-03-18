@@ -14,6 +14,13 @@ class Field extends Component {
     }
   }
 
+  $updatedProps(){
+    return {
+      ...this.props.data,
+      errors: this.$errors()
+    }
+  }
+
   render() {
     switch(this.props.data.type){
       case 'checkbox': 
@@ -23,7 +30,7 @@ class Field extends Component {
       case 'date':
         return <DateGroup data={this.props.data} />
       default:
-        return <Input data={this.props.data} errors={this.$errors()}/>
+        return <Input data={this.$updatedProps()} />
     }
   }
 }
