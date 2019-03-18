@@ -9,18 +9,12 @@ const Field = props => {
   switch(props.data.type){
     case 'checkbox': 
       return <Checkbox data={props.data} />
-    case 'text':
-      return <Input data={props.data} />
     case 'select':
       return <Select data={props.data} />
     case 'date':
       return <DateGroup data={props.data} />
     default:
-      return (
-        <div>
-          other field type
-        </div>
-      )
+      return <Input data={props.data} />
   }
 }
 
@@ -29,6 +23,7 @@ Field.propTypes = {
     id: string.isRequired,
     type: string.isRequired,
     value: any,
+    validation: any,
     options: any,
     change: func.isRequired
   })

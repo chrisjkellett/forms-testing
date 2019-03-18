@@ -8,7 +8,6 @@ describe('models for creating form fields', () => {
     const key = 'test';
     const inputModel = new Input(key, {required: {valid: false}});
     const field = inputModel[key];
-    console.log(field);
     expect(field).toBeDefined();
     expect(field.validation.required).toBeDefined();
     expect(field.validation.required.valid).toBeDefined();
