@@ -22,6 +22,11 @@ describe('<Input />', () => {
       const inputWithError = cmp.find('.Error');
       expect(inputWithError).toHaveLength(0);
     })
+
+    test('no error messages present', () => {
+      const errors = cmp.find('.ErrorMessage');
+      expect(errors).toHaveLength(0);
+    })
   })
 
   describe('with errors', () => {
@@ -42,6 +47,11 @@ describe('<Input />', () => {
     test('assigns Error class when errors present', () => {
       const inputWithError = cmp.find('.Error');
       expect(inputWithError).toHaveLength(1);
+    })
+
+    test('error messages present', () => {
+      const errors = cmp.find('.ErrorMessage');
+      expect(errors.text()).toBe(data.errors[0]);
     })
   })
   
