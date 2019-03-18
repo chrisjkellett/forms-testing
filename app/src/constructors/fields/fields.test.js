@@ -6,16 +6,18 @@ import appData from '../../app-data';
 describe('models for creating form fields', () => {
   test('can create an Input model with custom validation', () => {
     const key = 'test';
-    const inputModel = new Input(key, {required: true});
-    expect(inputModel[key]).toBeDefined();
-    expect(inputModel[key].validation.required).toBeDefined();
+    const inputModel = new Input(key, {required: {valid: false}});
+    const field = inputModel[key];
+    console.log(field);
+    expect(field).toBeDefined();
+    expect(field.validation.required).toBeDefined();
+    expect(field.validation.required.valid).toBeDefined();
   })
 
-  test('can create a Checkbox model with custom validation', () => {
+  test('can create a Checkbox model', () => {
     const key = 'test';
     const checkboxModel = new Checkbox(key, {required: true});
     expect(checkboxModel[key]).toBeDefined();
-    expect(checkboxModel[key].validation.required_cb).toBeDefined();
   })
 
   test('can create an Options model for Checkbox', () => {
@@ -52,10 +54,6 @@ describe('models for creating form fields', () => {
           day: today.format(appData.DATE_FORMAT.DAY),
           month: today.format(appData.DATE_FORMAT.MONTH),
           year: today.format(appData.DATE_FORMAT.YEAR)
-        },
-        valid: true,
-        validaton: {
-          is_valid_date: true
         }
       }
     }

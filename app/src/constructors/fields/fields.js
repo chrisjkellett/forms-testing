@@ -10,9 +10,8 @@ export function Input(name, rules){
       type: 'text',
       value: '',
       change: null,
-      valid: false,
       validation: {
-        required: true,
+        required: {valid: false},
         ...rules
       }
     }
@@ -29,10 +28,6 @@ export function DateInput(name){
         day: today.format(appData.DATE_FORMAT.DAY),
         month: today.format(appData.DATE_FORMAT.MONTH),
         year: today.format(appData.DATE_FORMAT.YEAR)
-      },
-      valid: true,
-      validaton: {
-        is_valid_date: true
       }
     }
   }
@@ -43,11 +38,7 @@ export function Checkbox(name){
     [format(name)]: {
       type: 'checkbox',
       change: null,
-      value: utilities.setCheckBoxValues(appData[name]),
-      valid: false,
-      validation: {
-        required_cb: true
-      }
+      value: utilities.setCheckBoxValues(appData[name])
     }
   }
 }
