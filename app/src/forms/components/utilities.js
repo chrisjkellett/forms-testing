@@ -1,6 +1,11 @@
 import React from 'react';
 import styles from './forms.module.css';
 
+const errorMessages = {
+  required: 'required',
+  required_cb: 'required',
+}
+
 const formUtilities = {
   applyStyle: function(errors){
     if(errors.length !== 0){
@@ -12,7 +17,7 @@ const formUtilities = {
     if(errors.length !== 0){
       return (
         <span className={styles.ErrorMessage}>
-          {errors[0]}
+          {errorMessages[errors[0]]}
         </span>
       );
     }
