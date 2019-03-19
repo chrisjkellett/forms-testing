@@ -4,7 +4,7 @@ import forms from '../utilities';
 
 class Checkbox extends Component {
   $renderOptions(){
-    const {change, id, type, value, errors} = this.props.data;
+    const {change, id, type, value} = this.props.data;  
     return Object.keys(value).map(item => {
       return (
         <span key={item}>
