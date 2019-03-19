@@ -27,39 +27,14 @@ describe('models for creating form fields', () => {
     const result = utilities.setCheckBoxValues(data);
     expect(result["value-1"]).toEqual(false);
   })
-
-  test('can create a Select model', () => {
-    const ins = new Select('test');
-    const model = {
-      'test': {
-        type: 'select',
-        change: null,
-        options: [
-          {value: 'value-1', label: 'value-1'}, 
-          {value: 'value-2', label: 'value-2'},
-          {value: 'value-3', label: 'value-3'},
-        ],
-        value: 'value-1'
-      }
-    }
-    expect(ins).toEqual(model);
-  })
   
   test('can create a DateInput model with validation', () => {
-    const ins = new DateInput('test');
-    const today = moment();
-    const model = {
-      'test': {
-        type: 'date',
-        change: null,
-        value: {
-          day: today.format(appData.DATE_FORMAT.DAY),
-          month: today.format(appData.DATE_FORMAT.MONTH),
-          year: today.format(appData.DATE_FORMAT.YEAR)
-        }
-      }
-    }
-    expect(ins).toEqual(model);
+    const key = 'test';
+    const dateModel = new DateInput('test', {is_valid_date: {valid: true}});
+    const field = dateModel[key];
+    expect(field).toBeDefined();
+    expect(field.validation.is_valid_date).toBeDefined();
+    expect(field.validation.is_valid_date.valid).toBe(true);
   })
   
 })

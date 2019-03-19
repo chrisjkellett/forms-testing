@@ -18,7 +18,7 @@ export function Input(name, rules){
   }
 }
 
-export function DateInput(name){
+export function DateInput(name, rules){
   const today = moment();
   return {
     [format(name)]: {
@@ -28,6 +28,10 @@ export function DateInput(name){
         day: today.format(appData.DATE_FORMAT.DAY),
         month: today.format(appData.DATE_FORMAT.MONTH),
         year: today.format(appData.DATE_FORMAT.YEAR)
+      },
+      validation: {
+        is_valid_date: {valid: true},
+        ...rules
       }
     }
   }
