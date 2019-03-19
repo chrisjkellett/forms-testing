@@ -28,5 +28,21 @@ describe('<Form /> validation', () => {
       expect(obj[field].validation[rule].valid).toBe(false);
     })
   })
+
+  describe('required_cb: true', () => {
+    const rule = 'required_cb';
+    
+    test('is valid when at least one box is checked', () => {
+      const obj = objToValidate(rule, {a: false, b: true});
+      validation.checkField(obj, field);
+      expect(obj[field].validation[rule].valid).toBe(true);
+    })
+
+    test('is invalid when at no boxes are checked', () => {
+      const obj = objToValidate(rule, {a: false, b: false});
+      validation.checkField(obj, field);
+      expect(obj[field].validation[rule].valid).toBe(false);
+    })
+  })
   
 })

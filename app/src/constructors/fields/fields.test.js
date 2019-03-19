@@ -13,10 +13,13 @@ describe('models for creating form fields', () => {
     expect(field.validation.required.valid).toBeDefined();
   })
 
-  test('can create a Checkbox model', () => {
+  test('can create a Checkbox model with default required validation', () => {
     const key = 'test';
-    const checkboxModel = new Checkbox(key, {required: true});
-    expect(checkboxModel[key]).toBeDefined();
+    const checkboxModel = new Checkbox(key);
+    const field = checkboxModel[key];
+    expect(field).toBeDefined();
+    expect(field.validation.required_cb).toBeDefined();
+    expect(field.validation.required_cb.valid).toBeDefined();
   })
 
   test('can create an Options model for Checkbox', () => {

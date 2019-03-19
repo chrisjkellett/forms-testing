@@ -33,12 +33,16 @@ export function DateInput(name){
   }
 }
 
-export function Checkbox(name){
+export function Checkbox(name, rules){
   return {
     [format(name)]: {
       type: 'checkbox',
       change: null,
-      value: utilities.setCheckBoxValues(appData[name])
+      value: utilities.setCheckBoxValues(appData[name]),
+      validation: {
+        required_cb: {valid: false},
+        ...rules
+      }
     }
   }
 }
