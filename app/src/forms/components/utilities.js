@@ -4,6 +4,7 @@ import styles from './forms.module.css';
 const errorMessages = {
   required: 'required',
   required_cb: 'required',
+  is_valid_date: 'invalid date'
 }
 
 const formUtilities = {

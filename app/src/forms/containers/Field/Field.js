@@ -27,7 +27,7 @@ class Field extends Component {
       case 'checkbox': 
         return <Checkbox data={data} />
       case 'select':
-        return <Select data={this.props.data} />
+        return <Select data={data} />
       case 'date':
         return <DateGroup data={data} />
       default:
