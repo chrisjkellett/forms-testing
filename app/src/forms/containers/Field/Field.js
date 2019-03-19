@@ -29,7 +29,7 @@ class Field extends Component {
       case 'select':
         return <Select data={this.props.data} />
       case 'date':
-        return <DateGroup data={this.props.data} />
+        return <DateGroup data={data} />
       default:
         return <Input data={data} />
     }

@@ -44,5 +44,21 @@ describe('<Form /> validation', () => {
       expect(obj[field].validation[rule].valid).toBe(false);
     })
   })
+
+  describe('is_valid_date: true', () => {
+    const rule = 'is_valid_date';
+    
+    test('is valid when date is real', () => {
+      const obj = objToValidate(rule, {day: "01", month: "01", year: "2019"});
+      validation.checkField(obj, field);
+      expect(obj[field].validation[rule].valid).toBe(true);
+    })
+
+    test('is invalid when date is not real', () => {
+      const obj = objToValidate(rule, {day: "31", month: "02", year: "2019"});
+      validation.checkField(obj, field);
+      expect(obj[field].validation[rule].valid).toBe(false);
+    })   
+  })
   
 })
