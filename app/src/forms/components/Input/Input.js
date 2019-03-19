@@ -1,11 +1,11 @@
 import React from 'react';
-import {shape, string, func, array} from 'prop-types';
+import {shape, string, func, array, bool, object} from 'prop-types';
 import forms from '../utilities';
 
 const Input = props => {
-  const {id, type, change, value, errors} = props.data;
-  const errorMessage = forms.printError(errors);
-  const styles = forms.applyStyle(errors);
+  const {id, type, change, value, errors, touched} = props.data;
+  const errorMessage = forms.printError(touched ? errors : []);
+  const styles = forms.applyStyle(touched ? errors : []);
   return (
       <div>
         <label>{id}</label>
@@ -26,7 +26,9 @@ Input.propTypes = {
     id: string.isRequired,
     type: string.isRequired,
     value: string.isRequired,
-    errors: array
+    validation: object,
+    errors: array,
+    touched: bool.isRequired,
   })
 }
 

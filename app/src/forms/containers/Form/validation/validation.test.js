@@ -4,6 +4,7 @@ const field = 'test';
 const objToValidate = (rule, value) => {
   return {
     [field]: {
+      touched: false,
       validation: {
         [rule]: {valid: false}
       },
@@ -16,6 +17,13 @@ describe('<Form /> validation', () => {
   describe('required: true', () => {
     const rule = 'required';
     
+    test('touched prop is set to prop whenever validation is run', () => {
+      const obj = objToValidate(rule, 'a_value');
+      expect(obj[field].touched).toBe(false);
+      validation.checkField(obj, field);
+      expect(obj[field].touched).toBe(true);
+    })
+
     test('is valid when value is not empty', () => {
       const obj = objToValidate(rule, 'a_value');
       validation.checkField(obj, field);

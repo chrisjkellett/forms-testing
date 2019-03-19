@@ -9,7 +9,8 @@ describe('<Input />', () => {
       type: 'text',
       change: jest.fn(),
       errors: [],
-      value: 'a_value'
+      value: 'a_value',
+      touched: false
     }
     const cmp = shallow(<Input data={data} />)
     
@@ -35,7 +36,8 @@ describe('<Input />', () => {
       type: 'text',
       change: jest.fn(),
       errors: ['required'],
-      value: ''
+      value: '',
+      touched: true
     }
     const cmp = shallow(<Input data={data} />)
     

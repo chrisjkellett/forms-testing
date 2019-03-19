@@ -4,7 +4,8 @@ const validation = {
   checkField: function(obj, id){
     const field = obj[id];
     const {validation, value} = field;
-
+    field.touched = true;
+    
     if(validation){
       if(validation.required) {
         validation.required.valid = this.tests.required(value);

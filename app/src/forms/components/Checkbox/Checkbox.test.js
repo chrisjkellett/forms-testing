@@ -10,7 +10,8 @@ describe('<Checkbox />', () => {
       'test-1': false,
       'test-2': false
     },
-    type: 'checkbox'
+    type: 'checkbox',
+    errors: []
   }
   const cmp = shallow(<Checkbox data={data} />);
   

@@ -13,11 +13,13 @@ describe('<Field />', () => {
       id: 'test',
       value: '',
       type: 'text',
+      touched: true,
       validation: {
         required: {
           valid: false
         }
-      }
+      },
+      errors: ['required']
     }
     const cmp = shallow(<Field data={data} />);
     const ins = cmp.instance();
@@ -37,6 +39,8 @@ describe('<Field />', () => {
       id: 'test',
       value: '',
       type: 'text',
+      touched: false,
+      errors: [],
       validation: {
         required: {
           valid: true
