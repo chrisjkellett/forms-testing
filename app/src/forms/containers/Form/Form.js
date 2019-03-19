@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {string, object} from 'prop-types';
 import Field from '../Field/Field';
-import {updateField, prepareForSubmit} from './helpers';
+import {updateField} from './helpers';
 import validation from './validation/validation';
 
 class Form extends Component {
@@ -53,9 +53,7 @@ class Form extends Component {
   }
 
   $submit(event){
-    const slice = this.state[this.props.id]
     event.preventDefault();
-    // const submitted = prepareForSubmit(slice);
   }
 
   render() {

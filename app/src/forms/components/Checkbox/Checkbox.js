@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {string, func, object, shape} from 'prop-types';
+import {string, func, object, shape, array} from 'prop-types';
 
 class Checkbox extends Component {
   $renderOptions(){
@@ -34,7 +34,8 @@ Checkbox.propTypes = {
     change: func.isRequired,
     id: string.isRequired,
     type: string.isRequired,
-    value: object.isRequired
+    value: object.isRequired,
+    errors: array
   })
 }
 

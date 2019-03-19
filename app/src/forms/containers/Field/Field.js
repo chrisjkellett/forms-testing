@@ -22,15 +22,16 @@ class Field extends Component {
   }
 
   render() {
+    const data = this.$updatedProps();
     switch(this.props.data.type){
       case 'checkbox': 
-        return <Checkbox data={this.props.data} />
+        return <Checkbox data={data} />
       case 'select':
         return <Select data={this.props.data} />
       case 'date':
         return <DateGroup data={this.props.data} />
       default:
-        return <Input data={this.$updatedProps()} />
+        return <Input data={data} />
     }
   }
 }
