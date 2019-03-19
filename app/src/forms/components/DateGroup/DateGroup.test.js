@@ -3,7 +3,7 @@ import {shallow} from 'enzyme';
 import DateGroup from './DateGroup';
 import DateSelect from '../DateSelect/DateSelect';
 import moment from 'moment';
-import appData from '../../app-data';
+import appData from '../../../app-data';
 
 describe('<DateGroup />', () => {
   const cmp_data = {

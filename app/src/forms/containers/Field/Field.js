@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {shape, string, func, any} from 'prop-types';
-import Checkbox from '../Checkbox/Checkbox';
-import Input from '../Input/Input';
-import Select from '../Select/Select';
-import DateGroup from '../DateGroup/DateGroup';
+import Checkbox from '../../components/Checkbox/Checkbox';
+import Input from '../../components/Input/Input';
+import Select from '../../components/Select/Select';
+import DateGroup from '../../components/DateGroup/DateGroup';
 
 class Field extends Component {
   $errors(){

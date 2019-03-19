@@ -1,10 +1,10 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import Field from './Field';
-import Checkbox from '../Checkbox/Checkbox';
-import Input from '../Input/Input';
-import Select from '../Select/Select';
-import DateGroup from '../DateGroup/DateGroup';
+import Checkbox from '../../components/Checkbox/Checkbox';
+import Input from '../../components/Input/Input';
+import Select from '../../components/Select/Select';
+import DateGroup from '../../components/DateGroup/DateGroup';
 
 describe('<Field />', () => {
   describe('<Input /> with errors', () => {

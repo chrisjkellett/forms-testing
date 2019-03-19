@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {string, func, shape} from 'prop-types';
 import DateSelect from '../DateSelect/DateSelect';
-import utilities from '../../utilities/utilities';
-import appData from '../../app-data';
+import utilities from '../../../utilities/utilities';
+import appData from '../../../app-data';
 
 class DateInput extends Component{
   $mapProps(obj, item){
