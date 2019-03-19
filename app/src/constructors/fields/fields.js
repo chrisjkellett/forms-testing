@@ -4,16 +4,23 @@ import moment from 'moment';
 
 const format = utilities.formatId;
 
+function DefaultFields(){
+  return {
+    change: null,
+    touched: false,
+  }
+}
+
 export function Input(name, rules){
   return {
     [format(name)]: {
       type: 'text',
       value: '',
-      change: null,
       validation: {
         required: {valid: false},
         ...rules
-      }
+      },
+      ...new DefaultFields()
     }
   }
 }
