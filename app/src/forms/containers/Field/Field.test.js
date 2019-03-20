@@ -68,7 +68,8 @@ describe('<Field />', () => {
         'test-1': false,
         'test-2': false
       },
-      type: 'checkbox'
+      type: 'checkbox',
+      touched: false
     }
     const cmp = shallow(<Field data={data} />);
     expect(cmp.find(Checkbox)).toHaveLength(1);
@@ -97,7 +98,8 @@ describe('<Field />', () => {
         day: '01',
         month: '01',
         year: '2019'
-      }
+      },
+      touched: false
     }
     const cmp = shallow(<Field data={data} />);
     expect(cmp.find(DateGroup)).toHaveLength(1);

@@ -4,8 +4,8 @@ import forms from '../utilities';
 
 const Input = props => {
   const {id, type, change, value, errors, touched} = props.data;
-  const errorMessage = forms.printError(touched ? errors : []);
-  const styles = forms.applyStyle(touched ? errors : []);
+  const errorMessage = forms.printError(errors, touched);
+  const styles = forms.applyStyle(errors, touched);
   return (
       <div>
         <label>{id}</label>

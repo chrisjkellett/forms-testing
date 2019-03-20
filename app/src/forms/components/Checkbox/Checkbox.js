@@ -22,7 +22,7 @@ class Checkbox extends Component {
   render() {
     const {id, errors, touched} = this.props.data;
     const options = this.$renderOptions();
-    const validationErrors = forms.printError(touched ? errors : []);
+    const validationErrors = forms.printError(errors, touched);
     return (
       <div>
         <label>{id}</label>

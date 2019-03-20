@@ -30,7 +30,6 @@ export function DateInput(name, rules){
   return {
     [format(name)]: {
       type: 'date',
-      change: null,
       value: {
         day: today.format(appData.DATE_FORMAT.DAY),
         month: today.format(appData.DATE_FORMAT.MONTH),
@@ -39,7 +38,8 @@ export function DateInput(name, rules){
       validation: {
         is_valid_date: {valid: true},
         ...rules
-      }
+      },
+      ...new DefaultFields()
     }
   }
 }

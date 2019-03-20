@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {string, func, shape, array} from 'prop-types';
+import {string, func, shape, array, bool} from 'prop-types';
 import DateSelect from '../DateSelect/DateSelect';
 import utilities from '../../../utilities/utilities';
 import appData from '../../../app-data';
@@ -11,8 +11,8 @@ class DateInput extends Component{
   }
 
   render() {
-    const {id, errors} = this.props.data;
-    const validationErrors = forms.printError(errors);
+    const {id, errors, touched} = this.props.data;
+    const validationErrors = forms.printError(errors, touched);
     return (
       <div>
         <label>{id}</label>
@@ -36,7 +36,8 @@ DateInput.propTypes = {
       month: string.isRequired,
       year: string.isRequired
     }),
-    errors: array
+    errors: array,
+    touched: bool.isRequired
   })
 }
 

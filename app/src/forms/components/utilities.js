@@ -8,14 +8,14 @@ const errorMessages = {
 }
 
 const formUtilities = {
-  applyStyle: function(errors){
-    if(errors.length !== 0){
+  applyStyle: function(errors, touched){
+    if(errors.length !== 0 && touched){
       return styles.Error;
     }
   },
 
-  printError: function(errors){
-    if(errors.length !== 0){
+  printError: function(errors, touched){
+    if(errors.length !== 0 && touched){
       return (
         <span className={styles.ErrorMessage}>
           {errorMessages[errors[0]]}

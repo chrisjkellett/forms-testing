@@ -16,7 +16,8 @@ describe('<DateGroup />', () => {
         month: '01',
         year: '2019'
       },
-      errors: ['is_valid_date']
+      errors: ['is_valid_date'],
+      touched: true
     }
     const cmp = shallow(<DateGroup data={cmp_data} />);
     expect(cmp.find(DateSelect)).toHaveLength(3);
@@ -32,7 +33,8 @@ describe('<DateGroup />', () => {
         month: '02',
         year: '2019'
       },
-      errors: ['is_valid_date']
+      errors: ['is_valid_date'],
+      touched: true
     }
     const cmp = shallow(<DateGroup data={cmp_data} />);
     expect(cmp.find('.ErrorMessage')).toHaveLength(1);
