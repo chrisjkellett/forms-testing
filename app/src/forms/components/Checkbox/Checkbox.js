@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {string, func, object, shape, array} from 'prop-types';
+import {string, func, object, shape, array, bool} from 'prop-types';
 import forms from '../utilities';
 
 class Checkbox extends Component {
@@ -20,9 +20,9 @@ class Checkbox extends Component {
   }
 
   render() {
-    const {id, errors} = this.props.data;
+    const {id, errors, touched} = this.props.data;
     const options = this.$renderOptions();
-    const validationErrors = forms.printError(errors)
+    const validationErrors = forms.printError(touched ? errors : []);
     return (
       <div>
         <label>{id}</label>
@@ -39,7 +39,9 @@ Checkbox.propTypes = {
     id: string.isRequired,
     type: string.isRequired,
     value: object.isRequired,
-    errors: array
+    validation: object,
+    errors: array,
+    touched: bool.isRequired,
   })
 }
 
