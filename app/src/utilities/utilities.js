@@ -59,6 +59,14 @@ const utilities = {
       }
     });
     return fails === 0;  
+  },
+
+  setAllTouched: function(slice){
+    const values = Object.values(slice);
+    values.forEach(field => {
+      field.touched = true;
+    })
+    return slice;
   }
 }
 

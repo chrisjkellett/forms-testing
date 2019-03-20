@@ -100,7 +100,22 @@ describe('data utilities', () => {
       const result = utilities.isValidSubmission(slice);
       expect(result).toBe(false)
     })
+  }),
+
+  test('setAllTouched() changed touched prop to true for all fields', () => {
+    const slice = {
+      a_field: {
+        touched: false
+      },
+      another_field: {
+        touched: false
+      }
+    }
+    const result = utilities.setAllTouched(slice);
+    expect(result.a_field.touched).toBe(true);
+    expect(result.another_field.touched).toBe(true);
   })
+  
   
   
 })
