@@ -52,29 +52,57 @@ describe('data utilities', () => {
     expect(result[30]).toBe("31");
   })
   
-  test('isValidSubmission() returns true if no fields are invalid', () => {
-    const slice = {
-      'field': {
-        validation: {
-          a_rule: {
-            valid: false
+  describe('isValidSubmission()', () => {
+    test('returns true if no fields are invalid', () => {
+      const slice = {
+        'field': {
+          validation: {
+            a_rule: {
+              valid: true
+            }
           }
-        }
-      },
-      'another_field': {
-        validation: {
-          a_rule: {
-            valid: false
-          },
-          another_rule: {
-            valid: true
+        },
+        'another_field': {
+          validation: {
+            a_rule: {
+              valid: true
+            },
+            another_rule: {
+              valid: true
+            }
           }
         }
       }
-    }
-    const result = utilities.isValidSubmission(slice);
-    expect(result).toBe(false)
+      const result = utilities.isValidSubmission(slice);
+      expect(result).toBe(true)
+    })
+
+    test('but fails if any field is invalid', () => {
+      const slice = {
+        'field': {
+          validation: {
+            a_rule: {
+              valid: true
+            }
+          }
+        },
+        'another_field': {
+          validation: {
+            a_rule: {
+              valid: false
+            },
+            another_rule: {
+              valid: true
+            }
+          }
+        }
+      }
+      const result = utilities.isValidSubmission(slice);
+      expect(result).toBe(false)
+    })
   })
+  
+  
 })
 
 

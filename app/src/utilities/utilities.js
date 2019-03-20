@@ -50,8 +50,15 @@ const utilities = {
   },
 
   isValidSubmission: function(slice){
-    console.log(slice)
-    return true
+    const values = Object.values(slice);
+    const rules = values.map(value => value.validation);
+    let fails = 0;
+    rules.forEach(x => {
+      if(!Object.values(x)[0].valid){
+        fails++
+      }
+    });
+    return fails === 0;  
   }
 }
 
