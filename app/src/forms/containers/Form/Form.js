@@ -52,14 +52,15 @@ class Form extends Component {
     })
   }
 
-  $submit(event){
+  $submit = (event) => {
     event.preventDefault();
+    console.log(this.state[this.props.id]);
   }
 
   render() {
     const fields = this.$mapFields();
     return (
-      <form onSubmit={this.submit}>
+      <form onSubmit={this.$submit}>
         {fields}
         <button>submit</button>
       </form>

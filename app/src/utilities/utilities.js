@@ -47,6 +47,11 @@ const utilities = {
     const days = [...Array(32).keys()];
     days.splice(0, 1);
     return days.map(d => d.toString());
+  },
+
+  isValidSubmission: function(slice){
+    console.log(slice)
+    return true
   }
 }
 
