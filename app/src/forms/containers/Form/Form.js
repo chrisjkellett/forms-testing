@@ -3,6 +3,7 @@ import {string, object} from 'prop-types';
 import Field from '../Field/Field';
 import {updateField} from './helpers';
 import validation from './validation/validation';
+import utilities from '../../../utilities/utilities';
 
 class Form extends Component {
   componentWillMount(){
@@ -54,6 +55,14 @@ class Form extends Component {
 
   $submit = (event) => {
     event.preventDefault();
+    const slice = this.state[this.props.id];
+    if(utilities.isValidSubmission(slice)){
+      console.log('is valid');
+    }else{
+      const updated = utilities.setAllTouched(slice);
+      this.$updateState(updated);
+    }
+   
     console.log(this.state[this.props.id]);
   }
 
