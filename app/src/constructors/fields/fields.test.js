@@ -1,7 +1,5 @@
-import moment from 'moment';
-import {Input, Checkbox, Select, DateInput} from './fields';
+import {Input, Checkbox, Select, DateInput, TextArea} from './fields';
 import utilities from '../../utilities/utilities';
-import appData from '../../app-data';
 
 describe('models for creating form fields', () => {
   test('can create an Input model with custom validation', () => {
@@ -37,6 +35,15 @@ describe('models for creating form fields', () => {
     expect(field.validation.is_valid_date).toBeDefined();
     expect(field.validation.is_valid_date.valid).toBe(true);
   })
+
+  test('can create a TextArea model with validation', () => {
+    const key = 'test';
+    const textareaModel = new TextArea(key);
+    const field = textareaModel[key];
+    expect(field.type).toBe('textarea');
+    expect(field.validation).toBeDefined();
+  })
+  
   
 })
 

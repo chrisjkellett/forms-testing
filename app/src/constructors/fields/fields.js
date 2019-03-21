@@ -25,6 +25,20 @@ export function Input(name, rules){
   }
 }
 
+export function TextArea(name, rules){
+  return {
+    [format(name)]: {
+      type: 'textarea',
+      value: '',
+      validation: {
+        required: {valid: false},
+        ...rules
+      },
+      ...new DefaultFields()
+    }
+  }
+}
+
 export function DateInput(name, rules){
   const today = moment();
   return {
