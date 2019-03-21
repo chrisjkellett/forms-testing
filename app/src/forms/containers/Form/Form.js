@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {string, object} from 'prop-types';
 import Field from '../Field/Field';
-import {updateField} from './helpers';
 import validation from './validation/validation';
 import utilities from '../../../utilities/utilities';
 
@@ -37,7 +36,7 @@ class Form extends Component {
 
   $change = (event, group) => {
     const slice = this.state[this.props.id];
-    const updated = updateField(event, group, slice);
+    const updated = utilities.updateField(event, group, slice);
     const fieldId = group || event.target.id;
     validation.checkField(updated, fieldId);
     this.$updateState(updated);
