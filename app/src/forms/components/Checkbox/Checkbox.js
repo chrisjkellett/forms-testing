@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {string, func, object, shape, array, bool} from 'prop-types';
-import forms from '../utilities';
+import forms from '../form-helpers';
 
 class Checkbox extends Component {
   $renderOptions(){

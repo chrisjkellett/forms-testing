@@ -3,7 +3,7 @@ import {string, func, shape, array, bool} from 'prop-types';
 import DateSelect from '../DateSelect/DateSelect';
 import utilities from '../../../utilities/utilities';
 import appData from '../../../app-data';
-import forms from '../utilities';
+import forms from '../form-helpers';
 
 class DateInput extends Component{
   $mapProps(obj, item){

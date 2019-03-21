@@ -1,6 +1,6 @@
 import React from 'react';
 import {shape, string, func, array, bool, object} from 'prop-types';
-import forms from '../utilities';
+import forms from '../form-helpers';
 
 const Input = props => {
   const {id, type, change, value, errors, touched} = props.data;
