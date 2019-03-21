@@ -6,18 +6,11 @@ import Input from '../../components/Input/Input';
 import Select from '../../components/Select/Select';
 import DateGroup from '../../components/DateGroup/DateGroup';
 import TextArea from '../../components/TextArea/TextArea';
-
-const TestData = function(type){
-  return {
-    change: jest.fn(),
-    id: 'test',
-    type: type,
-    value: '',
-    touched: false
-  }
-}
+import utilities from '../../../utilities/test-utilities';
 
 describe('<Field />', () => {
+  const {TestData} = utilities;
+
   describe('<Input /> with errors', () => {
     test('renders Input when type is text', () => {
       const type = 'text';
