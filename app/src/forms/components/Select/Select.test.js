@@ -1,22 +1,18 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import Select from './Select';
+import utilities from '../../../utilities/test-utilities';
 
 describe('<Select />', () => {
-  let cmp, data;
-  beforeAll(() => {
-    data = {
-      change: jest.fn(),
-      id: 'test',
-      options: [
+  const {TestData} = utilities;
+  const data = {
+    ...new TestData('select'),
+    options: [
         {value: 'option1', label: 'option 1'},
         {value: 'option2', label: 'option 2'}
       ],
-      type: 'select',
-      value: 'option1'
-    }
-    cmp = shallow(<Select data={data} />)
-  })
+  }
+  const cmp = shallow(<Select data={data} />)
 
   test('renders a div grouping element', () => {
     expect(cmp.find(`#${data.id}-wrapper`)).toHaveLength(1);

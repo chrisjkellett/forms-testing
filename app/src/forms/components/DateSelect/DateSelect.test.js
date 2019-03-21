@@ -1,28 +1,23 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import DateSelect from './DateSelect';
+import utls from '../../../utilities/test-utilities';
 
 describe('<DateSelect />', () => {
-  let cmp, data;
-  
-  beforeAll(() => {
-    data = {
-      change: jest.fn(),
-      id: 'test',
-      groupId: 'test-set',
-      options: [
-        {id: '01', label: '1'},
-        {id: '02', label: '2'}
-      ],
-      type: 'select',
-      value: {
-        day: '01',
-        month: '01',
-        year: '2019'
-      }
+  const data = {
+    ...new utls.TestData('date'),
+    groupId: 'test-set',
+    options: [
+      {id: '01', label: '1'},
+      {id: '02', label: '2'}
+    ],
+    value: {
+      day: '01',
+      month: '01',
+      year: '2019'
     }
-    cmp = shallow(<DateSelect data={data} />)
-  })
+  }
+  const cmp = shallow(<DateSelect data={data} />);
 
   test('renders a div grouping element', () => {
     expect(cmp.find(`#${data.id}-wrapper`)).toHaveLength(1);
