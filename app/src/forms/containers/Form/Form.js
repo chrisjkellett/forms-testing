@@ -62,8 +62,6 @@ class Form extends Component {
       const updated = utilities.setAllTouched(slice);
       this.$updateState(updated);
     }
-   
-    console.log(this.state[this.props.id]);
   }
 
   render() {

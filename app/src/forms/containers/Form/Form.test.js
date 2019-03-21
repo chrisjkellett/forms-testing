@@ -108,14 +108,6 @@ describe('<Form />', () => {
     instance.$change(event, group);
     expect(cmp.state()[id][group].value[event.target.id]).toBe(event.target.value);
   })
-
-  test('can prepare an object for db on submit', () => {
-    const event = {
-      preventDefault: jest.fn()
-    }
-    const result = instance.$submit(event);
-  })
-  
   
 })
 
