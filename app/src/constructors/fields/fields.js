@@ -63,9 +63,10 @@ export function Select(name){
   return {
     [format(name)]: {
       type: 'select',
-      change: null,
       value: options[0].value,
-      options: options
+      validation: null,
+      options: options,
+      ...new DefaultFields()
     }
   }
 }
