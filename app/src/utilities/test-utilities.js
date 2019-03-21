@@ -5,7 +5,9 @@ const utilities = {
       id: 'test',
       type: type,
       value: '',
-      touched: false
+      touched: false,
+      errors: [],
+      validation: {}
     }
   }
 }

@@ -2,8 +2,12 @@ import React from 'react';
 import {shape, func, array, string, bool, object} from 'prop-types';
 
 const TextArea = props => {
+  const {id, value, change} = props.data;
   return (
-    <p>text area placeholder</p>
+    <div id={`${id}-wrapper`}>
+      <label>{id}</label>
+      <textarea id={id} value={value} onChange={change} />
+    </div>
   )
 }
 
