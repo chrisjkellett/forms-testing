@@ -19,99 +19,47 @@ const TestData = function(type){
 
 describe('<Field />', () => {
   describe('<Input /> with errors', () => {
-    const data = {
-      change: jest.fn(),
-      id: 'test',
-      value: '',
-      type: 'text',
-      touched: true,
-      validation: {
-        required: {
-          valid: false
-        }
-      },
-      errors: ['required']
-    }
-    const cmp = shallow(<Field data={data} />);
-    const ins = cmp.instance();
-
     test('renders Input when type is text', () => {
+      const type = 'text';
+      const data = new TestData(type);
+      const cmp = shallow(<Field data={data} />);
       expect(cmp.find(Input)).toHaveLength(1);
     })
-
-    test('detects validation errors when not valid', () => {
-      expect(ins.$errors()).toEqual(['required']);
-    })
-  })
-
-  describe('<Input /> with no errors', () => {
-    const data = {
-      change: jest.fn(),
-      id: 'test',
-      value: '',
-      type: 'text',
-      touched: false,
-      errors: [],
-      validation: {
-        required: {
-          valid: true
-        }
-      }
-    }
-    const cmp = shallow(<Field data={data} />);
-    const ins = cmp.instance();
-
-    test('renders Input when type is text', () => {
-      expect(cmp.find(Input)).toHaveLength(1);
-    })
-
-    test('detects validation errors when not valid', () => {
-      expect(ins.$errors()).toEqual([]);
-    })
-
   })
 
   test('renders Checkbox when type is checkbox', () => {
+    const type = 'checkbox';
     const data = {
-      change: jest.fn(),
-      id: 'test',
+      ...new TestData(type),
       value: {
         'test-1': false,
         'test-2': false
-      },
-      type: 'checkbox',
-      touched: false
+      }
     }
     const cmp = shallow(<Field data={data} />);
     expect(cmp.find(Checkbox)).toHaveLength(1);
   })
   
   test('renders Select when type is select', () => {
+    const type = 'select';
     const data = {
-      change: jest.fn(),
-      id: 'test',
+      ...new TestData(type),
       options: [
         {id: 'value-1', label: 'value 1'}
-      ],
-      type: 'select',
-      value: 'value 1'
+      ]
     }
     const cmp = shallow(<Field data={data} />);
     expect(cmp.find(Select)).toHaveLength(1);
   })
 
   test('renders DateInput when type is date', () => {
+    const type = 'date';
     const data = {
-      change: jest.fn(),
-      id: 'test',
-      type: 'date',
+      ...new TestData(type),
       value: {
-        day: '01',
-        month: '01',
-        year: '2019'
-      },
-      touched: false
-    }
+        day: '01', month: '01', year: '2019'
+      }
+    };
     const cmp = shallow(<Field data={data} />);
     expect(cmp.find(DateGroup)).toHaveLength(1);
   })
