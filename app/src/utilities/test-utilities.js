@@ -5,8 +5,8 @@ const utilities = {
       id: 'test',
       type: type,
       value: '',
-      touched: false,
-      errors: [],
+      touched: true,
+      errors: ['test-error'],
       validation: {}
     }
   }
