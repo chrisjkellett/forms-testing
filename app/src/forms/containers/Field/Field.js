@@ -4,6 +4,7 @@ import Checkbox from '../../components/Checkbox/Checkbox';
 import Input from '../../components/Input/Input';
 import Select from '../../components/Select/Select';
 import DateGroup from '../../components/DateGroup/DateGroup';
+import TextArea from '../../components/TextArea/TextArea';
 
 class Field extends Component {
   $errors(){
@@ -30,6 +31,8 @@ class Field extends Component {
         return <Select data={data} />
       case 'date':
         return <DateGroup data={data} />
+      case 'textarea':
+        return <TextArea data={data} />
       default:
         return <Input data={data} />
     }

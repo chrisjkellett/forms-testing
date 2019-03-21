@@ -5,6 +5,17 @@ import Checkbox from '../../components/Checkbox/Checkbox';
 import Input from '../../components/Input/Input';
 import Select from '../../components/Select/Select';
 import DateGroup from '../../components/DateGroup/DateGroup';
+import TextArea from '../../components/TextArea/TextArea';
+
+const TestData = function(type){
+  return {
+    change: jest.fn(),
+    id: 'test',
+    type: type,
+    value: '',
+    touched: false
+  }
+}
 
 describe('<Field />', () => {
   describe('<Input /> with errors', () => {
@@ -103,6 +114,13 @@ describe('<Field />', () => {
     }
     const cmp = shallow(<Field data={data} />);
     expect(cmp.find(DateGroup)).toHaveLength(1);
+  })
+
+  test('renders TextArea when type is textarea', () => {
+    const type = 'textarea';
+    const data = new TestData(type);
+    const cmp = shallow(<Field data={data} />);
+    expect(cmp.find(TextArea)).toHaveLength(1);
   })
   
 })
