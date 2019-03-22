@@ -45,15 +45,18 @@ export function DateInput(name, rules){
 }
 
 export function Input(name, options = {}){
+  const validation = Object.assign({}, options.validation);
+  delete options.validation;
   return {
     [format(name)]: {
       type: 'text',
       value: '',
       validation: {
         required: {valid: false},
-        ...options.validation
+        ...validation
       },
-      ...new DefaultFields()
+      ...new DefaultFields(),
+      ...options
     }
   }
 }

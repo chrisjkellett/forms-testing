@@ -2,22 +2,30 @@ import {Input, Checkbox, Select, DateInput, TextArea} from './fields';
 import utilities from '../../utilities/utilities';
 
 describe('models for creating form fields', () => {
-  test('can create an Input model with custom validation', () => {
-    const key = 'test';
-    const inputModel = new Input(key, {
-      validation: {
-        custom_rule: {
-          valid: false, 
-          limit: 5
-        }
-      }
-    });
-    const field = inputModel[key];
-    console.log(field.validation)
-    expect(field.validation.custom_rule).toBeDefined();
-    expect(field.validation.custom_rule.valid).toBeDefined();
-    expect(field.touched).toBeDefined();
+  const name = 'test';
+  describe('new Input', () => {
+    test('can be created', () => {
+      const ins = new Input(name);
+      const field = ins[name];
+      expect(field).toBeDefined();
+    })
+
+    test('can have custom validation and does not overwrite existing rules', () => {
+      const ins = new Input(name, {validation: {custom_rule: {valid: false}}});
+      const field = ins[name];
+      expect(field.validation.custom_rule).toBeDefined();
+      expect(Object.keys(field.validation).length).not.toBe(1);
+    })
+
+    test('validation does not overwrite default rules', () => {
+      const ins = new Input(name, {
+        value: 'new_default_value'
+      });
+      const field = ins[name];
+      expect(field.value).toBe('new_default_value');
+    })
   })
+
 
   test('can create a Checkbox model with default required validation', () => {
     const key = 'test';
