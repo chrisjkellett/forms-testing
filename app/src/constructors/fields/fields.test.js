@@ -4,11 +4,18 @@ import utilities from '../../utilities/utilities';
 describe('models for creating form fields', () => {
   test('can create an Input model with custom validation', () => {
     const key = 'test';
-    const inputModel = new Input(key, {required: {valid: false}});
+    const inputModel = new Input(key, {
+      validation: {
+        custom_rule: {
+          valid: false, 
+          limit: 5
+        }
+      }
+    });
     const field = inputModel[key];
-    expect(field).toBeDefined();
-    expect(field.validation.required).toBeDefined();
-    expect(field.validation.required.valid).toBeDefined();
+    console.log(field.validation)
+    expect(field.validation.custom_rule).toBeDefined();
+    expect(field.validation.custom_rule.valid).toBeDefined();
     expect(field.touched).toBeDefined();
   })
 

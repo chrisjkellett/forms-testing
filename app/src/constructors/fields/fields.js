@@ -11,30 +11,16 @@ function DefaultFields(){
   }
 }
 
-export function Input(name, rules){
+export function Checkbox(name, rules){
   return {
     [format(name)]: {
-      type: 'text',
-      value: '',
+      type: 'checkbox',
+      value: utilities.setCheckBoxValues(appData[name]),
       validation: {
-        required: {valid: false},
-        ...rules
+        required_cb: {valid: false}
       },
-      ...new DefaultFields()
-    }
-  }
-}
-
-export function TextArea(name, rules){
-  return {
-    [format(name)]: {
-      type: 'textarea',
-      value: '',
-      validation: {
-        required: {valid: false},
-        ...rules
-      },
-      ...new DefaultFields()
+      ...new DefaultFields(),
+      ...rules
     }
   }
 }
@@ -58,13 +44,27 @@ export function DateInput(name, rules){
   }
 }
 
-export function Checkbox(name, rules){
+export function Input(name, options = {}){
   return {
     [format(name)]: {
-      type: 'checkbox',
-      value: utilities.setCheckBoxValues(appData[name]),
+      type: 'text',
+      value: '',
       validation: {
-        required_cb: {valid: false},
+        required: {valid: false},
+        ...options.validation
+      },
+      ...new DefaultFields()
+    }
+  }
+}
+
+export function TextArea(name, rules){
+  return {
+    [format(name)]: {
+      type: 'textarea',
+      value: '',
+      validation: {
+        required: {valid: false},
         ...rules
       },
       ...new DefaultFields()
