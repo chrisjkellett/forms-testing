@@ -11,16 +11,20 @@ function DefaultFields(){
   }
 }
 
-export function Checkbox(name, rules){
+export function Checkbox(name, custom = {}){
+  const validation = Object.assign({}, custom.validation);
+  const value = utilities.setCheckBoxValues(custom.options);
+  delete custom.validation;
   return {
     [format(name)]: {
       type: 'checkbox',
-      value: utilities.setCheckBoxValues(appData[name]),
       validation: {
-        required_cb: {valid: false}
+        required_cb: {valid: false},
+        ...validation
       },
       ...new DefaultFields(),
-      ...rules
+      ...custom,
+      value: value
     }
   }
 }
@@ -44,9 +48,9 @@ export function DateInput(name, rules){
   }
 }
 
-export function Input(name, options = {}){
-  const validation = Object.assign({}, options.validation);
-  delete options.validation;
+export function Input(name, custom = {}){
+  const validation = Object.assign({}, custom.validation);
+  delete custom.validation;
   return {
     [format(name)]: {
       type: 'text',
@@ -56,7 +60,7 @@ export function Input(name, options = {}){
         ...validation
       },
       ...new DefaultFields(),
-      ...options
+      ...custom
     }
   }
 }
