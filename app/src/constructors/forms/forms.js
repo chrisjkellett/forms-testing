@@ -5,7 +5,7 @@ export const examinerFormModel = {
   model: {
     ...new Input('name', {
       validation: {
-        maxLength: {
+        minLength: {
           valid: false,
           limiter: 5
         }

@@ -5,7 +5,7 @@ const errorMessages = {
   required: 'required',
   required_cb: 'required',
   is_valid_date: 'invalid date',
-  maxLength: 'minimum length'
+  minLength: 'minimum length'
 }
 
 const formUtilities = {

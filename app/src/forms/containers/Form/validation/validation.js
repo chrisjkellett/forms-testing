@@ -4,7 +4,6 @@ const validation = {
   checkField: function(obj, id){
     const field = obj[id];
     const {validation, value} = field;
-    field.touched = true;
     
     if(validation){
       if(validation.required) {
@@ -16,9 +15,9 @@ const validation = {
       if(validation.is_valid_date){
         validation.is_valid_date.valid = this.tests.is_valid_date(value);
       }
-      if(validation.maxLength){
-        const {limiter} = validation.maxLength;
-        validation.maxLength.valid = this.tests.maxLength(value, limiter);
+      if(validation.minLength){
+        const {limiter} = validation.minLength;
+        validation.minLength.valid = this.tests.minLength(value, limiter);
       }
     }
 
@@ -36,7 +35,7 @@ const validation = {
       const mapValues = Object.keys(value).map(item => value[item]);
       return moment(mapValues.join("-"), 'DD-MM-YYYY').isValid();
     },
-    maxLength: function(value, limiter){
+    minLength: function(value, limiter){
       return value.length >= limiter;
     }
   }

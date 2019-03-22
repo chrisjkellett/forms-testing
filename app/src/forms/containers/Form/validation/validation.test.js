@@ -16,13 +16,6 @@ const objToValidate = (rule, value, limiter) => {
 describe('<Form /> validation', () => {
   describe('required: true', () => {
     const rule = 'required';
-    
-    test('touched prop is set to prop whenever validation is run', () => {
-      const obj = objToValidate(rule, 'a_value');
-      expect(obj[field].touched).toBe(false);
-      validation.checkField(obj, field);
-      expect(obj[field].touched).toBe(true);
-    })
 
     test('is valid when value is not empty', () => {
       const obj = objToValidate(rule, 'a_value');
@@ -69,8 +62,8 @@ describe('<Form /> validation', () => {
     })   
   })
 
-  describe('maxLength: true', () => {
-    const rule = 'maxLength';
+  describe('minLength: true', () => {
+    const rule = 'minLength';
     
     test('is valid when length is greater than limiter', () => {
       const obj = objToValidate(rule, "morethanlimiter", {limiter: 5});
