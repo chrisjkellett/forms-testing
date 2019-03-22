@@ -3,7 +3,14 @@ import {Input, Checkbox, Select, DateInput, TextArea} from '../fields/fields';
 export const examinerFormModel = {
   id: 'examiners',
   model: {
-    ...new Input('name'),
+    ...new Input('name', {
+      validation: {
+        maxLength: {
+          valid: false,
+          limiter: 5
+        }
+      }
+    }),
     ...new Input('age'),
     ...new Checkbox('levels', {
       options: ["KET", "PET", "FCE"]

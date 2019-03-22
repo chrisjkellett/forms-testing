@@ -33,13 +33,9 @@ describe('models for creating form fields', () => {
       });
       const field = ins[name];
       expect(field).toBeDefined();
-      console.log(field)
     })
   })
   
-
-  
-
   test('can create an Options model for Checkbox', () => {
     const data = ["value-1", "value-2"];
     const result = utilities.setCheckBoxValues(data);

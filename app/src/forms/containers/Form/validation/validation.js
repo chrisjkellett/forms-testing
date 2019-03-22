@@ -16,6 +16,10 @@ const validation = {
       if(validation.is_valid_date){
         validation.is_valid_date.valid = this.tests.is_valid_date(value);
       }
+      if(validation.maxLength){
+        const {limiter} = validation.maxLength;
+        validation.maxLength.valid = this.tests.maxLength(value, limiter);
+      }
     }
 
     return obj;
@@ -31,6 +35,9 @@ const validation = {
     is_valid_date: function(value){
       const mapValues = Object.keys(value).map(item => value[item]);
       return moment(mapValues.join("-"), 'DD-MM-YYYY').isValid();
+    },
+    maxLength: function(value, limiter){
+      return value.length >= limiter;
     }
   }
 

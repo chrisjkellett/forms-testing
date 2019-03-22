@@ -1,12 +1,12 @@
 import validation from './validation';
 
 const field = 'test';
-const objToValidate = (rule, value) => {
+const objToValidate = (rule, value, limiter) => {
   return {
     [field]: {
       touched: false,
       validation: {
-        [rule]: {valid: false}
+        [rule]: {valid: false, ...limiter},
       },
       value: value
     }
@@ -67,6 +67,22 @@ describe('<Form /> validation', () => {
       validation.checkField(obj, field);
       expect(obj[field].validation[rule].valid).toBe(false);
     })   
+  })
+
+  describe('maxLength: true', () => {
+    const rule = 'maxLength';
+    
+    test('is valid when length is greater than limiter', () => {
+      const obj = objToValidate(rule, "morethanlimiter", {limiter: 5});
+      validation.checkField(obj, field);
+      expect(obj[field].validation[rule].valid).toBe(true);
+    });
+
+    test('is invalid when length is less than limiter', () => {
+      const obj = objToValidate(rule, "less", {limiter: 5});
+      validation.checkField(obj, field);
+      expect(obj[field].validation[rule].valid).toBe(false);
+    });
   })
   
 })
